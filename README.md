@@ -8,5 +8,5 @@ Objectif du projet : transformer cette application en application React, migrer 
 
 # Stack tech :
 - Vite
-- REact 19
+- React 18
 - Typescript
