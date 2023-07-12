@@ -1,7 +1,7 @@
 import { FC, useContext, useState } from "react";
 import styled from "styled-components";
-
-import { CreateUserContext } from "../Context/CreateUserContext";
+import { useTeam } from "../Context/EmployeesContext";
+import EmployeesContainer from "../Containers/EmployeesContainer";
 
 interface IEmployeePageStyled {
   id?: string;
@@ -13,19 +13,12 @@ interface IEmployeePage {
 }
 
 const EmployeePage: FC<IEmployeePage> = ({ id }) => {
-  //@ts-ignores
-  const [currentUser, setCurrentUser] = useState({});
-
+  //@ts-ignore
+  const { team, removePlayer } = useTeam();
   return (
     <EmployeePageStyled id={id} className="EmployeePage">
-      <CreateUserContext.Provider
-        value={{
-          currentUser,
-          setCurrentUser,
-        }}
-      >
-        employee
-      </CreateUserContext.Provider>
+      employee
+      <EmployeesContainer />
     </EmployeePageStyled>
   );
 };

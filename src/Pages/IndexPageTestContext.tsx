@@ -2,7 +2,6 @@ import { FC, useState } from "react";
 import styled from "styled-components";
 
 import { Form, Input, Button } from "../Components";
-import Players from "../Containers/CreateEmployeeForm";
 
 interface IIndexPageStyled {
   id?: string;
@@ -14,12 +13,21 @@ interface IIndexPage {
 }
 
 const IndexPage: FC<IIndexPage> = ({ id }) => {
+  // const changeFirstName = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (e.target.value.length > 0) {
+  //     //setCurrentUser({ firstName: e.target.value })
+  //     //setName();
+  //   } else if (e.target.value.length === 0) {
+  //     setName("");
+  //   }
+  // };
+  // const [currentUser, setCurrentUser] = useState({name : ""});
+
   //@ts-ignore
   const [currentUser, setCurrentUser] = useState({});
 
   return (
     <IndexPageStyled id={id} className="indexPage container">
-      <Players />
       <h2>Create Employee</h2>
       <Form id="create-empState">
         <Input
@@ -29,7 +37,6 @@ const IndexPage: FC<IIndexPage> = ({ id }) => {
           label="First Name"
           onChange={(e) => console.log("change")}
         />
-
         <Input
           id="last-name"
           forId="last-name"
@@ -49,6 +56,7 @@ const IndexPage: FC<IIndexPage> = ({ id }) => {
           type="text"
           label="Start Date"
         />
+
         <fieldset className="address">
           <legend>Address</legend>
           <Input id="street" forId="street" type="text" label="Street" />
@@ -78,7 +86,6 @@ const IndexPage: FC<IIndexPage> = ({ id }) => {
           onClick={(e) => {
             console.log("click");
             e.preventDefault();
-            // setCurrentUser({ currentUser });
           }}
         >
           Save
