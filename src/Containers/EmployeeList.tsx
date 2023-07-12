@@ -24,15 +24,15 @@ const EmployeeListStyled = styled.tr`
 interface IEmployeeList {
   player: {};
   isOnTeam: boolean;
-  addPlayer?: any;
-  removePlayer?: any;
+  addEmployee?: any;
+  removeEmployee?: any;
 }
 
 const EmployeeList: FC<IEmployeeList> = ({
   player = {},
   isOnTeam,
-  addPlayer,
-  removePlayer,
+  addEmployee,
+  removeEmployee,
 }) => {
   const {
     //@ts-ignore
@@ -70,9 +70,9 @@ const EmployeeList: FC<IEmployeeList> = ({
       <td>{zipCode}</td>
       <td>
         {isOnTeam ? (
-          <button onClick={() => removePlayer(id)}>Remove</button>
+          <button onClick={() => removeEmployee(id)}>Remove</button>
         ) : (
-          <button onClick={() => addPlayer(player)}>Add to team</button>
+          <button onClick={() => addEmployee(player)}>Add to employees</button>
         )}
       </td>
     </EmployeeListStyled>

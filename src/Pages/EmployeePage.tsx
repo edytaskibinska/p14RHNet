@@ -14,7 +14,7 @@ interface IEmployeePage {
 
 const EmployeePage: FC<IEmployeePage> = ({ id }) => {
   //@ts-ignore
-  const { team, removePlayer } = useTeam();
+  const { employees, removeEmployee } = useTeam();
   return (
     <EmployeePageStyled id={id} className="EmployeePage">
       employee

@@ -5,23 +5,23 @@ import EmployeeList from "./EmployeeList";
 
 const EmployeesContainer: FC = () => {
   //@ts-ignore
-  const { team, removePlayer } = useTeam();
-  const size = team.length;
-  console.log("team", team);
+  const { employees, removeEmployee } = useTeam();
+  const size = employees.length;
+  console.log("employees", employees);
   return (
     <div>
       {size === 0 ? <p>no employees found</p> : <p>Total: {size} Employees</p>}
 
       {size > 0 && (
         <table>
-          {team.map((p: any, index: any) => {
-            const isOnTeam = team.some((player: any) => player.id === p.id);
+          {employees.map((p: any, index: any) => {
+            const isOnTeam = employees.some((player: any) => player.id === p.id);
             return (
               <tbody>
                 <EmployeeList
                   player={p}
                   isOnTeam={isOnTeam}
-                  removePlayer={removePlayer}
+                  removeEmployee={removeEmployee}
                   key={index}
                 />
               </tbody>

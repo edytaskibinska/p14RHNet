@@ -19,7 +19,7 @@ const CreateEmployeeForm: FC = () => {
   const unique_id = uuid();
   const small_id = unique_id.slice(0, 8);
   //@ts-ignore
-  const { team, addPlayer, removePlayer } = useTeam();
+  const { employees, addEmployee, removeEmployee } = useTeam();
   return (
     <div>
       <h1>Create employee</h1>
@@ -114,12 +114,12 @@ const CreateEmployeeForm: FC = () => {
               state: theState,
               zipCode: zipCode,
             };
-            const employeeExist = team.some((e: any) => e.id === small_id);
+            const employeeExist = employees.some((e: any) => e.id === small_id);
             if (employeeExist) {
               setConfirmation(false);
               return;
             }
-            team.push(newMember);
+            employees.push(newMember);
             setConfirmation(true);
           }}
         >
@@ -128,7 +128,7 @@ const CreateEmployeeForm: FC = () => {
       </Form>
       <>
         {/* {employeesArray.map((p: any, index: any) => {
-          const isOnTeam = team.some((player: any) => player.id === p?.id);
+          const isOnTeam = employees.some((player: any) => player.id === p?.id);
           return (
             <table>
               Employee table
@@ -136,8 +136,8 @@ const CreateEmployeeForm: FC = () => {
                 <EmployeeList
                   player={p}
                   isOnTeam={isOnTeam}
-                  addPlayer={addPlayer}
-                  removePlayer={removePlayer}
+                  addEmployee={addEmployee}
+                  removeEmployee={removeEmployee}
                   key={index}
                 />
               </tbody>

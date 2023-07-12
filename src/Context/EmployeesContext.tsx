@@ -1,40 +1,40 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 const initEmployeesList = {
-  team: [],
+  employees: [],
 };
 //@ts-ignore
 export const EmployeesContext = createContext();
 
 const getInitialState = () => {
-  const team = localStorage.getItem("team");
-  return team ? JSON.parse(team) : initEmployeesList;
+  const employees = localStorage.getItem("employees");
+  return employees ? JSON.parse(employees) : initEmployeesList;
 };
 
 const EmployeesContextProvider = (props: any) => {
-  const [team, setTeam] = useState(getInitialState);
+  const [employees, setTeam] = useState(getInitialState);
 
   useEffect(() => {
-    localStorage.setItem("team", JSON.stringify(team));
-  }, [team]);
+    localStorage.setItem("employees", JSON.stringify(employees));
+  }, [employees]);
 
-  const addPlayer = (player: any) =>
+  const addEmployee = (player: any) =>
     setTeam((prev: any) => {
       const newTeam = {
         ...prev,
-        team: [...prev.team, player],
+        employees: [...prev.employees, player],
       };
       return newTeam;
     });
 
-  const removePlayer = (playerId: any) =>
+  const removeEmployee = (playerId: any) =>
     setTeam((prev: any) => ({
       ...prev,
-      team: prev.team.filter((p: any) => p.id !== playerId),
+      employees: prev.employees.filter((p: any) => p.id !== playerId),
     }));
 
   return (
-    <EmployeesContext.Provider value={{ addPlayer, removePlayer, ...team }}>
+    <EmployeesContext.Provider value={{ addEmployee, removeEmployee, ...employees }}>
       {props.children}
     </EmployeesContext.Provider>
   );
