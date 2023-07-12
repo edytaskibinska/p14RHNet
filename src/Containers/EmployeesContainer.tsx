@@ -1,10 +1,9 @@
-
 import { FC } from "react";
 
 import { useTeam } from "../Context/EmployeesContext";
 import EmployeeList from "./EmployeeList";
 
-const EmployeesContainer:FC = () => {
+const EmployeesContainer: FC = () => {
   //@ts-ignore
   const { team, removePlayer } = useTeam();
   const size = team.length;
@@ -15,15 +14,17 @@ const EmployeesContainer:FC = () => {
 
       {size > 0 && (
         <table>
-          {team.map((p: any) => {
+          {team.map((p: any, index: any) => {
             const isOnTeam = team.some((player: any) => player.id === p.id);
             return (
-              <EmployeeList
-                player={p}
-                isOnTeam={isOnTeam}
-                removePlayer={removePlayer}
-                key={p.id}
-              />
+              <tbody>
+                <EmployeeList
+                  player={p}
+                  isOnTeam={isOnTeam}
+                  removePlayer={removePlayer}
+                  key={index}
+                />
+              </tbody>
             );
           })}
         </table>
@@ -31,4 +32,4 @@ const EmployeesContainer:FC = () => {
     </div>
   );
 };
-export default EmployeesContainer
+export default EmployeesContainer;
