@@ -1,5 +1,7 @@
-import { FC } from "react";
+import { FC, useContext, useState } from "react";
 import styled from "styled-components";
+
+import { CreateUserContext } from "../Context/CreateUserContext";
 
 interface IEmployeePageStyled {
   id?: string;
@@ -10,9 +12,21 @@ interface IEmployeePage {
   id?: string;
 }
 
-const EmployeePage: FC<IEmployeePage> = ({id}) => {
+const EmployeePage: FC<IEmployeePage> = ({ id }) => {
+  //@ts-ignores
+  const [currentUser, setCurrentUser] = useState({});
+
   return (
-    <EmployeePageStyled id={id} className="EmployeePage">Employee</EmployeePageStyled>
+    <EmployeePageStyled id={id} className="EmployeePage">
+      <CreateUserContext.Provider
+        value={{
+          currentUser,
+          setCurrentUser,
+        }}
+      >
+        employee
+      </CreateUserContext.Provider>
+    </EmployeePageStyled>
   );
 };
 

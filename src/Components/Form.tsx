@@ -1,6 +1,5 @@
-import { FC, ReactNode, MouseEvent } from "react";
+import { FC, ReactNode } from "react";
 import styled from "styled-components";
-import { Button } from "./index";
 interface IFormBasicStyle {
   id?: string;
 }
@@ -11,14 +10,12 @@ interface IForm {
   id?: string;
   children?: ReactNode;
   className?: string;
-  submitHandler?: (event: MouseEvent<HTMLElement>) => void;
 }
 
-const Form: FC<IForm> = ({ id, children, className, submitHandler }) => {
+const Form: FC<IForm> = ({ id, children, className }) => {
   return (
     <FormStyled id={id} className={className}>
       {children}
-      <Button onClick={submitHandler}>Save</Button>
     </FormStyled>
   );
 };
