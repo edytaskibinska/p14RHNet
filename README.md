@@ -11,4 +11,9 @@ Objectif du projet : transformer cette application en application React, migrer 
 - React 18
 - Typescript
 
-# https://colorhunt.co/palette/316b836d82998ca1a5d5bfbf
+# CLI to generate documentation 
+ npx typedoc --out docs src/main.tsx
+
+# Others :
+Data table library : https://react-data-table-component.netlify.app/?path=/docs/getting-started-intro--page
+Colors inspiration : https://colorhunt.co/palette/316b836d82998ca1a5d5bfbf

@@ -139,6 +139,8 @@ const CreateEmployeeForm: FC = () => {
         onClick={() => setConfirmation(false)}
         isOpen={confirmation}
         className="modal"
+        withButton
+        buttonText="Fermer"
       >
         Employee Created!
       </Modal>
