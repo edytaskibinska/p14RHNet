@@ -1,7 +1,8 @@
 import { FC, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { useEmployeesList } from "../Context/EmployeesContext";
-import { Form, Input, Button, Modal } from "../Components";
+import { Form, Input, Button, Modal, Select } from "../Components";
+import { states, dept } from "../Data/SelectData";
 
 const CreateEmployeeForm: FC = () => {
   const [frstName, setFrstName] = useState("");
@@ -39,14 +40,14 @@ const CreateEmployeeForm: FC = () => {
         <Input
           id="date-of-birth"
           forId="date-of-birth"
-          type="text"
+          type="date"
           label="Date of Birth"
           onChange={(e) => setBirthDate(e.target.value)}
         />
         <Input
           id="start-date"
           forId="start-date"
-          type="text"
+          type="date"
           label="Start Date"
           onChange={(e) => setStartDate(e.target.value)}
         />
@@ -66,15 +67,14 @@ const CreateEmployeeForm: FC = () => {
             label="City"
             onChange={(e) => setCity(e.target.value)}
           />
-          <label htmlFor="state">State</label>
-          <select
+
+          <Select
+            label="State"
             name="state"
-            id="state"
+            options={states}
             onChange={(e) => setTheState(e.target.value)}
-          >
-            <option>oklahoma</option>
-            <option>state fake</option>
-          </select>
+          />
+
           <Input
             id="zip-code"
             forId="zip-code"
@@ -83,18 +83,13 @@ const CreateEmployeeForm: FC = () => {
             onChange={(e) => setZipCode(e.target.value)}
           />
         </fieldset>
-        <label htmlFor="department">Department</label>
-        <select
-          name="department"
-          id="department"
-          onChange={(e) => setDepartment(e.target.value)}
-        >
-          <option>Sales</option>
-          <option>Marketing</option>
-          <option>Engineering</option>
-          <option>Human Resources</option>
-          <option>Legal</option>
-        </select>
+
+        <Select
+            label="Department"
+            name="department"
+            options={dept}
+            onChange={(e) => setDepartment(e.target.value)}
+          />
 
         <Button
           onClick={(e) => {

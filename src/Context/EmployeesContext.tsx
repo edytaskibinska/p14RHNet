@@ -9,7 +9,7 @@ interface IEmployeeContext {
   addEmployee: () => void;
   removeEmployee: () => void;
 }
-
+//TODO use reducer aulieu de localstorage
 const initEmployeesList = {
   employees: [],
 };

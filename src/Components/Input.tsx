@@ -9,6 +9,8 @@ export const InputBasic = styled.div`
     font-weight: bold;
   }
   input {
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
     padding: 5px;
     font-size: 1.2rem;
   }

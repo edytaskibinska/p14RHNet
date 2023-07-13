@@ -1,6 +1,5 @@
 import { FC, useContext, useState } from "react";
 import styled from "styled-components";
-import { useEmployeesList } from "../Context/EmployeesContext";
 import EmployeesContainer from "../Containers/EmployeesContainer";
 
 interface IEmployeePageStyled {
@@ -13,8 +12,6 @@ interface IEmployeePage {
 }
 
 const EmployeePage: FC<IEmployeePage> = ({ id }) => {
-  //@ts-ignore
-  const { employees, removeEmployee } = useEmployeesList();
   return (
     <EmployeePageStyled id={id} className="EmployeePage">
       employee

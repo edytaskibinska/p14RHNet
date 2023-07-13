@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const MainStyled = styled.main`
   flex: 1;
-  width: 800px;
+  max-width: 1400px;
   border: 1px solid red;
   margin: 0 auto;
 `;

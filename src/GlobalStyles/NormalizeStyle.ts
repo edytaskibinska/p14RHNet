@@ -172,7 +172,7 @@ input[type="reset"],
 input[type="submit"] {
     -webkit-appearance: button; 
     cursor: pointer; 
-    *overflow: visible;  
+    //*overflow: visible;  
 }
 
 

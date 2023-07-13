@@ -60,3 +60,38 @@ const EmployeeList: FC<IEmployeeList> = ({
   );
 };
 export default EmployeeList;
+
+//IMPLEMENTATION EXAMPLE :
+{/* 
+employees: array of objects like: 
+const employees = [
+  {
+    id?: string;
+    firstName?: string;
+    lastName?: string;
+    dateOfBirth?: string;
+    startDate?: string;
+    department?: string;
+    street?: string;
+    city?: string;
+    state?: string;
+    zipCode?: number | undefined;
+  }
+]
+<table>
+<tbody>
+  {employees.map((item: any, index: any) => {
+    const isOnTeam = employees.some(
+      (employeePerson: any) => employeePerson.id === item.id
+    );
+    return (
+      <EmployeeList
+        employeePerson={item}
+        isOnTeam={isOnTeam}
+        removeEmployee={removeEmployee}
+        key={index}
+      />
+    );
+  })}
+</tbody>
+</table> */}
