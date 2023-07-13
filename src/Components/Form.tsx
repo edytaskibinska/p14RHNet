@@ -4,7 +4,9 @@ interface IFormBasicStyle {
   id?: string;
 }
 
-const FormStyled = styled.form<IFormBasicStyle>``;
+const FormStyled = styled.form<IFormBasicStyle>`
+  padding: 20px;
+`;
 
 interface IForm {
   id?: string;

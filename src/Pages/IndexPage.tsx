@@ -1,7 +1,5 @@
 import { FC, useState } from "react";
 import styled from "styled-components";
-
-import { Form, Input, Button , Modal} from "../Components";
 import CreateEmployeeForm from "../Containers/CreateEmployeeForm";
 
 interface IIndexPageStyled {
@@ -19,9 +17,7 @@ const IndexPage: FC<IIndexPage> = ({ id }) => {
 
   return (
     <IndexPageStyled id={id} className="indexPage container">
-      <h2>Create Employee</h2>
       <CreateEmployeeForm />
-    
     </IndexPageStyled>
   );
 };

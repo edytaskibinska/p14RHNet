@@ -10,3 +10,5 @@ Objectif du projet : transformer cette application en application React, migrer 
 - Vite
 - React 18
 - Typescript
+
+# https://colorhunt.co/palette/316b836d82998ca1a5d5bfbf

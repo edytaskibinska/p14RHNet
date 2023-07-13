@@ -1,5 +1,4 @@
- 
- import { FC, useMemo, useState } from "react";
+import { FC, useMemo, useState } from "react";
 import styled from "styled-components";
 import { useEmployeesList } from "../Context/EmployeesContext";
 
@@ -41,7 +40,7 @@ const FilterComponent: FC<IFilterComponent> = ({
       value={filterText}
       onChange={onFilter}
     />
-    <Button onClick={onClear}>X</Button>
+    <Button onClick={onClear}>Clear</Button>
   </>
 );
 
@@ -92,7 +91,23 @@ const columns = [
     sortable: true,
   },
 ];
-
+const TableContainer = styled.div`
+  .rdt_TableHeader > div {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  header {
+    display: flex;
+    input {
+      height: 41px;
+    }
+    button {
+      width: auto;
+      margin-top: 0;
+    }
+  }
+`;
 const EmployeesContainer: FC = () => {
   //@ts-ignore
   const { employees, removeEmployee } = useEmployeesList();
@@ -127,9 +142,7 @@ const EmployeesContainer: FC = () => {
 
   //END data table
   return (
-    <div>
-      {size === 0 ? <p>no employees found</p> : <p>Total: {size} Employees</p>}
-
+    <TableContainer>
       {size > 0 && (
         <>
           <DataTable
@@ -145,7 +158,7 @@ const EmployeesContainer: FC = () => {
           />
         </>
       )}
-    </div>
+    </TableContainer>
   );
 };
 export default EmployeesContainer;

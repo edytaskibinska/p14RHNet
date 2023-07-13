@@ -1,21 +1,24 @@
-import { FC, ChangeEvent, LegacyRef } from "react";
+import { FC, ChangeEvent, useState } from "react";
 import styled from "styled-components";
+import {colors} from "../Data/Colors"
 
 export const InputBasic = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-bottom: 10px;
   label {
     font-weight: bold;
   }
   input {
-    border: 1px solid #DDDDDD;
+    border: 1px solid #8CA1A5;
     border-radius: 5px;
     padding: 5px;
     font-size: 1.2rem;
+    width: 100%;
   }
   .errorMsg {
-    color: red;
+    color: ${colors.red};
     font-size: 10px;
   }
 `;
@@ -29,7 +32,6 @@ interface IInput {
   value?: string | number;
   placeholder?: string;
   required?: boolean;
-  refErrorObject?: LegacyRef<HTMLDivElement>;
   inputClassName?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -44,9 +46,10 @@ const Input: FC<IInput> = ({
   placeholder,
   inputClassName,
   required,
-  refErrorObject,
   onChange,
 }) => {
+  //TODO gestion d'erreurs
+  const [inputValid, setInputValid] = useState(true)
   return (
     <InputBasic id={id} className={className}>
       <label htmlFor={forId}>{label}</label>
@@ -59,7 +62,7 @@ const Input: FC<IInput> = ({
         className={inputClassName}
         onChange={onChange}
       />
-      <div ref={refErrorObject} className="errorMsg">Error</div>
+      {!inputValid && <div className="errorMsg">Error</div>}
     </InputBasic>
   );
 };

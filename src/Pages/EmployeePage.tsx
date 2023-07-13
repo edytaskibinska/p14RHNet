@@ -1,4 +1,4 @@
-import { FC, useContext, useState } from "react";
+import { FC } from "react";
 import styled from "styled-components";
 import EmployeesContainer from "../Containers/EmployeesContainer";
 
@@ -14,7 +14,6 @@ interface IEmployeePage {
 const EmployeePage: FC<IEmployeePage> = ({ id }) => {
   return (
     <EmployeePageStyled id={id} className="EmployeePage">
-      employee
       <EmployeesContainer />
     </EmployeePageStyled>
   );

@@ -6,8 +6,8 @@ interface ILogoBasicStyle {
 }
 
 const LogoStyled = styled.img<ILogoBasicStyle>`
-  width: 50px;
-  height: 50px;
+  width: 120px;
+  height: 120px;
 `;
 
 interface ILogo {

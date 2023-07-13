@@ -1,11 +1,25 @@
-import { FC, ReactNode, ChangeEvent } from "react";
+import { FC } from "react";
 import styled from "styled-components";
 
 interface ISelectCustomBasicStyle {
   id?: string;
 }
 
-const SelectCustomStyled = styled.div<ISelectCustomBasicStyle>``;
+const SelectCustomStyled = styled.div<ISelectCustomBasicStyle>`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  label {
+    font-weight: bold;
+    text-align: left;
+  }
+  select {
+    border: 1px solid #8CA1A5;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1.2rem;
+  }
+`;
 
 interface ISelectCustom {
   id?: string;

@@ -5,7 +5,6 @@ const HeaderStyled = styled.header`
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: 1px solid red;
   width: 100%;
 `;
 

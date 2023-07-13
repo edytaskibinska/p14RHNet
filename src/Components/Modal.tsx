@@ -1,5 +1,6 @@
 import { FC, ReactNode, MouseEvent } from "react";
 import styled from "styled-components";
+import {colors} from "../Data/Colors"
 
 interface IModalBasicStyle {
   id?: string;
@@ -12,7 +13,6 @@ const ModalOverlay = styled.div<IModalBasicStyle>`
   width: 100%;
   padding: 8px;
   position: fixed;
-  border: 4px solid red;
   top: 0px;
   bottom: 0px;
   left: 0px;
@@ -21,7 +21,7 @@ const ModalOverlay = styled.div<IModalBasicStyle>`
 `;
 
 const ModalBlock = styled.div`
-  background-color: white;
+  background-color:${colors.white};
   max-width: 500px;
   border-radius: 10px;
   padding: 20px;
@@ -29,7 +29,7 @@ const ModalBlock = styled.div`
 `;
 
 const ModalClose = styled.div`
-  background-color: black;
+  background-color: ${colors.greenClear};
   width: 20px;
   height: 20px;
   border-radius: 10px;

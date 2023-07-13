@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { useEmployeesList } from "../Context/EmployeesContext";
-import { Form, Input, Button, Modal, Select } from "../Components";
+import { Form, Fieldset, Input, Button, Modal, Select, Title } from "../Components";
 import { states, dept } from "../Data/SelectData";
 
 const CreateEmployeeForm: FC = () => {
@@ -21,7 +21,7 @@ const CreateEmployeeForm: FC = () => {
   const { employees, addEmployee, removeEmployee } = useEmployeesList();
   return (
     <div>
-      <h1>Create employee</h1>
+      <Title>Create employee</Title>
       <Form id="create-empState">
         <Input
           id="first-name"
@@ -51,8 +51,8 @@ const CreateEmployeeForm: FC = () => {
           label="Start Date"
           onChange={(e) => setStartDate(e.target.value)}
         />
-        <fieldset className="address">
-          <legend>Address</legend>
+        <Fieldset legend="Address" className="address">
+
           <Input
             id="street"
             forId="street"
@@ -82,14 +82,14 @@ const CreateEmployeeForm: FC = () => {
             label="Zip Code"
             onChange={(e) => setZipCode(e.target.value)}
           />
-        </fieldset>
+        </Fieldset>
 
         <Select
-            label="Department"
-            name="department"
-            options={dept}
-            onChange={(e) => setDepartment(e.target.value)}
-          />
+          label="Department"
+          name="department"
+          options={dept}
+          onChange={(e) => setDepartment(e.target.value)}
+        />
 
         <Button
           onClick={(e) => {

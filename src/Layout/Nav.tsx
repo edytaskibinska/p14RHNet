@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
-
+import { colors } from "../Data/Colors";
 import styled from "styled-components";
 
 const NavStyled = styled.nav`
@@ -8,11 +8,16 @@ const NavStyled = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 5px 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
   .navLink {
     padding: 10px;
+    text-decoration: none;
+    color: ${colors.greenClear};
   }
   .navLink.active {
-    color: red;
+    text-decoration: underline;
+    color: ${colors.black};
   }
 `;
 

@@ -1,12 +1,13 @@
 import { FC } from "react";
 import styled from "styled-components";
+import { colors } from "../Data/Colors";
 
 const Page404Styled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #2c3e50;
+  color: ${colors.green};
   padding: 20px;
 
   .text404 {
@@ -22,7 +23,7 @@ const Page404Styled = styled.div`
     text-align: center;
   }
   .link {
-    color: #2c3e50;
+    color: ${colors.greenClear};
     margin-bottom: 70px;
   }
   @media all and (max-width: 650px) {
