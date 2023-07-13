@@ -1,6 +1,6 @@
-import { FC, useMemo, useState } from "react";
+import { FC, useMemo, useState, useContext } from "react";
 import styled from "styled-components";
-import { useEmployeesList } from "../Context/EmployeesContext";
+import { EmployeesContext } from "../Context/EmployeesContext";
 
 import { Button } from "../Components";
 
@@ -96,7 +96,7 @@ const TableContainer = styled.div`
     font-size: 1.5rem;
     font-weight: 600;
   }
-  
+
   header {
     display: flex;
     input {
@@ -110,7 +110,9 @@ const TableContainer = styled.div`
 `;
 const EmployeesContainer: FC = () => {
   //@ts-ignore
-  const { employees, removeEmployee } = useEmployeesList();
+  const { state, dispatch } = useContext(EmployeesContext);
+  //@ts-ignore
+  const employees = state.employees;
   const size = employees.length;
   console.log("employees", employees);
 

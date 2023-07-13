@@ -1,59 +1,44 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useReducer } from "react";
 
 interface IInitEmpList {
   employees: never[] | any;
 }
-
-interface IEmployeeContext {
-  employees: IInitEmpList;
-  addEmployee: () => void;
-  removeEmployee: () => void;
+interface IState {
+  employees: Object[];
 }
-//TODO use reducer aulieu de localstorage
-const initEmployeesList = {
+interface IAction {
+  type: string;
+  payload: Object;
+}
+//initial state - empty list of employees
+const initialState = {
   employees: [],
 };
 
-export const EmployeesContext = createContext<IInitEmpList>(initEmployeesList);
-
-const getInitialState = () => {
-  const employees = localStorage.getItem("employees");
-  return employees ? JSON.parse(employees) : initEmployeesList;
+// Reducer function with 'ADD_EMPLOYEE' action type
+const reducer = (state: IState, action: IAction) => {
+  switch (action.type) {
+    case "ADD_EMPLOYEE":
+      return {
+        ...state,
+        employees: [...state.employees, action.payload],
+      };
+    default:
+      return state;
+  }
 };
 
+//creating store (context) with initial state
+const EmployeesContext = createContext<IInitEmpList>(initialState);
+
+//Provode the state (context) for all application
 const EmployeesContextProvider = (props: any) => {
-  const [employees, setEmployees] = useState(getInitialState);
-
-  useEffect(() => {
-    localStorage.setItem("employees", JSON.stringify(employees));
-  }, [employees]);
-
-  const addEmployee = (employeePerson: any) =>
-    setEmployees((prev: any) => {
-      const newTeam = {
-        ...prev,
-        employees: [...prev.employees, employeePerson],
-      };
-      return newTeam;
-    });
-
-  const removeEmployee = (employeePersonId: any) =>
-    setEmployees((prev: any) => ({
-      ...prev,
-      employees: prev.employees.filter(
-        (item: any) => item.id !== employeePersonId
-      ),
-    }));
-
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <EmployeesContext.Provider
-      value={{ addEmployee, removeEmployee, ...employees } as IEmployeeContext}
-    >
+    <EmployeesContext.Provider value={{ state, dispatch } as any}>
       {props.children}
     </EmployeesContext.Provider>
   );
 };
 
-export const useEmployeesList = () => useContext(EmployeesContext);
-
-export default EmployeesContextProvider;
+export { EmployeesContext, EmployeesContextProvider };

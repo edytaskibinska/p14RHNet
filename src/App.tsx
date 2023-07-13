@@ -1,7 +1,7 @@
 import "./App.css";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Routes/BrowserRouter";
-import TeamContextProvider from "./Context/EmployeesContext";
+import { EmployeesContextProvider } from "./Context/EmployeesContext";
 
 // style
 import NormalizeStyle from "./GlobalStyles/NormalizeStyle";
@@ -10,12 +10,12 @@ import { ThemeProvider } from "styled-components";
 function App() {
   return (
     <>
-      <TeamContextProvider>
+      <EmployeesContextProvider>
         <ThemeProvider theme={{ mode: "dark" }}>
           <NormalizeStyle />
           <RouterProvider router={router} />;
         </ThemeProvider>
-      </TeamContextProvider>
+      </EmployeesContextProvider>
     </>
   );
 }

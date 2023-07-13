@@ -1,8 +1,16 @@
-import { FC, useState } from "react";
+import { FC, useState, useContext } from "react";
 import { v4 as uuid } from "uuid";
-import { useEmployeesList } from "../Context/EmployeesContext";
-import { Form, Fieldset, Input, Button, Modal, Select, Title } from "../Components";
+import {
+  Form,
+  Fieldset,
+  Input,
+  Button,
+  Modal,
+  Select,
+  Title,
+} from "../Components";
 import { states, dept } from "../Data/SelectData";
+import { EmployeesContext } from "../Context/EmployeesContext";
 
 const CreateEmployeeForm: FC = () => {
   const [frstName, setFrstName] = useState("");
@@ -17,11 +25,15 @@ const CreateEmployeeForm: FC = () => {
   const [confirmation, setConfirmation] = useState(false);
   const unique_id = uuid();
   const small_id = unique_id.slice(0, 8);
+
   //@ts-ignore
-  const { employees, addEmployee, removeEmployee } = useEmployeesList();
+  const { state, dispatch } = useContext(EmployeesContext);
+  const employees = state.employees;
+
   return (
     <div>
       <Title>Create employee</Title>
+      <>{console.log("STATE usereducer", state)}</>
       <Form id="create-empState">
         <Input
           id="first-name"
@@ -52,7 +64,6 @@ const CreateEmployeeForm: FC = () => {
           onChange={(e) => setStartDate(e.target.value)}
         />
         <Fieldset legend="Address" className="address">
-
           <Input
             id="street"
             forId="street"
@@ -107,15 +118,20 @@ const CreateEmployeeForm: FC = () => {
               state: theState,
               zipCode: zipCode,
             };
+
             const employeeExist = employees.some((e: any) => e.id === small_id);
             if (employeeExist) {
               setConfirmation(false);
               return;
             }
-            employees.push(newMember);
+            dispatch({
+              type: "ADD_EMPLOYEE",
+              payload: newMember,
+            });
             setConfirmation(true);
           }}
         >
+          {" "}
           Add Employee
         </Button>
       </Form>
