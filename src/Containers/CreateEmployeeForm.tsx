@@ -1,11 +1,9 @@
 import { FC, useState } from "react";
 import { v4 as uuid } from "uuid";
-import { useTeam } from "../Context/EmployeesContext";
-import EmployeeList from "./EmployeeList";
+import { useEmployeesList } from "../Context/EmployeesContext";
 import { Form, Input, Button, Modal } from "../Components";
 
 const CreateEmployeeForm: FC = () => {
-  const employeesArray: [] = [];
   const [frstName, setFrstName] = useState("");
   const [lstName, setLstName] = useState("");
   const [birthDate, setBirthDate] = useState("");
@@ -19,7 +17,7 @@ const CreateEmployeeForm: FC = () => {
   const unique_id = uuid();
   const small_id = unique_id.slice(0, 8);
   //@ts-ignore
-  const { employees, addEmployee, removeEmployee } = useTeam();
+  const { employees, addEmployee, removeEmployee } = useEmployeesList();
   return (
     <div>
       <h1>Create employee</h1>
@@ -126,25 +124,6 @@ const CreateEmployeeForm: FC = () => {
           Add Employee
         </Button>
       </Form>
-      <>
-        {/* {employeesArray.map((p: any, index: any) => {
-          const isOnTeam = employees.some((player: any) => player.id === p?.id);
-          return (
-            <table>
-              Employee table
-              <tbody>
-                <EmployeeList
-                  player={p}
-                  isOnTeam={isOnTeam}
-                  addEmployee={addEmployee}
-                  removeEmployee={removeEmployee}
-                  key={index}
-                />
-              </tbody>
-            </table>
-          );
-        })} */}
-      </>
       <Modal
         onClick={() => setConfirmation(false)}
         isOpen={confirmation}

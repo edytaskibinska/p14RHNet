@@ -1,11 +1,11 @@
 import { FC } from "react";
 
-import { useTeam } from "../Context/EmployeesContext";
+import { useEmployeesList } from "../Context/EmployeesContext";
 import EmployeeList from "./EmployeeList";
 
 const EmployeesContainer: FC = () => {
   //@ts-ignore
-  const { employees, removeEmployee } = useTeam();
+  const { employees, removeEmployee } = useEmployeesList();
   const size = employees.length;
   console.log("employees", employees);
   return (
@@ -14,19 +14,21 @@ const EmployeesContainer: FC = () => {
 
       {size > 0 && (
         <table>
-          {employees.map((p: any, index: any) => {
-            const isOnTeam = employees.some((player: any) => player.id === p.id);
-            return (
-              <tbody>
+          <tbody>
+            {employees.map((item: any, index: any) => {
+              const isOnTeam = employees.some(
+                (employeePerson: any) => employeePerson.id === item.id
+              );
+              return (
                 <EmployeeList
-                  player={p}
+                  employeePerson={item}
                   isOnTeam={isOnTeam}
                   removeEmployee={removeEmployee}
                   key={index}
                 />
-              </tbody>
-            );
-          })}
+              );
+            })}
+          </tbody>
         </table>
       )}
     </div>

@@ -1,19 +1,8 @@
 import { FC } from "react";
 
 import styled from "styled-components";
+import { IEmployee } from "../Interfaces/IEmployee";
 
-interface IEmployee {
-  id?: string;
-  firstName?: string;
-  lastName?: string;
-  dateOfBirth?: string;
-  startDate?: string;
-  department?: string;
-  street?: string;
-  city?: string;
-  state?: string;
-  zipCode?: number | undefined;
-}
 const EmployeeListStyled = styled.tr`
   border: 2px solid green;
   td {
@@ -22,40 +11,30 @@ const EmployeeListStyled = styled.tr`
 `;
 
 interface IEmployeeList {
-  player: {};
+  employeePerson: {};
   isOnTeam: boolean;
   addEmployee?: any;
   removeEmployee?: any;
 }
 
 const EmployeeList: FC<IEmployeeList> = ({
-  player = {},
+  employeePerson = {},
   isOnTeam,
   addEmployee,
   removeEmployee,
 }) => {
   const {
-    //@ts-ignore
     id,
-    //@ts-ignore
     firstName,
-    //@ts-ignore
     lastName,
-    //@ts-ignore
     dateOfBirth,
-    //@ts-ignore
     startDate,
-    //@ts-ignore
     department,
-    //@ts-ignore
     street,
-    //@ts-ignore
     city,
-    //@ts-ignore
     state,
-    //@ts-ignore
     zipCode,
-  } = player;
+  } = employeePerson as IEmployee;
 
   return (
     <EmployeeListStyled>
@@ -72,7 +51,9 @@ const EmployeeList: FC<IEmployeeList> = ({
         {isOnTeam ? (
           <button onClick={() => removeEmployee(id)}>Remove</button>
         ) : (
-          <button onClick={() => addEmployee(player)}>Add to employees</button>
+          <button onClick={() => addEmployee(employeePerson)}>
+            Add to employees
+          </button>
         )}
       </td>
     </EmployeeListStyled>

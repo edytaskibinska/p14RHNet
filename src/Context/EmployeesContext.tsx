@@ -1,10 +1,20 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
+interface IInitEmpList {
+  employees: never[] | any;
+}
+
+interface IEmployeeContext {
+  employees: IInitEmpList;
+  addEmployee: () => void;
+  removeEmployee: () => void;
+}
+
 const initEmployeesList = {
   employees: [],
 };
-//@ts-ignore
-export const EmployeesContext = createContext();
+
+export const EmployeesContext = createContext<IInitEmpList>(initEmployeesList);
 
 const getInitialState = () => {
   const employees = localStorage.getItem("employees");
@@ -12,34 +22,38 @@ const getInitialState = () => {
 };
 
 const EmployeesContextProvider = (props: any) => {
-  const [employees, setTeam] = useState(getInitialState);
+  const [employees, setEmployees] = useState(getInitialState);
 
   useEffect(() => {
     localStorage.setItem("employees", JSON.stringify(employees));
   }, [employees]);
 
-  const addEmployee = (player: any) =>
-    setTeam((prev: any) => {
+  const addEmployee = (employeePerson: any) =>
+    setEmployees((prev: any) => {
       const newTeam = {
         ...prev,
-        employees: [...prev.employees, player],
+        employees: [...prev.employees, employeePerson],
       };
       return newTeam;
     });
 
-  const removeEmployee = (playerId: any) =>
-    setTeam((prev: any) => ({
+  const removeEmployee = (employeePersonId: any) =>
+    setEmployees((prev: any) => ({
       ...prev,
-      employees: prev.employees.filter((p: any) => p.id !== playerId),
+      employees: prev.employees.filter(
+        (item: any) => item.id !== employeePersonId
+      ),
     }));
 
   return (
-    <EmployeesContext.Provider value={{ addEmployee, removeEmployee, ...employees }}>
+    <EmployeesContext.Provider
+      value={{ addEmployee, removeEmployee, ...employees } as IEmployeeContext}
+    >
       {props.children}
     </EmployeesContext.Provider>
   );
 };
 
-export const useTeam = () => useContext(EmployeesContext);
+export const useEmployeesList = () => useContext(EmployeesContext);
 
 export default EmployeesContextProvider;
