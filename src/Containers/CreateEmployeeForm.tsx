@@ -11,6 +11,8 @@ import {
 } from "../Components";
 import { states, dept } from "../Data/SelectData";
 import { EmployeesContext } from "../Context/EmployeesContext";
+import { colors } from "../Data/Colors";
+
 
 const CreateEmployeeForm: FC = () => {
   const [frstName, setFrstName] = useState("");
@@ -139,10 +141,16 @@ const CreateEmployeeForm: FC = () => {
         onClick={() => setConfirmation(false)}
         isOpen={confirmation}
         className="modal"
+        modalTitle="Création de l'employée"
         withButton
+        clicOutsideToClose
         buttonText="Fermer"
+        closeBtnColor={colors.green}
+        buttonColor={colors.black}
+        modalTitleColor={colors.black}
+        modalTextColor={colors.greenClear}
       >
-        Employee Created!
+        Employee Created! 
       </Modal>
     </div>
   );

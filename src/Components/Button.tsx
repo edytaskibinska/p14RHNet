@@ -16,6 +16,9 @@ const ButtonStyled = styled.button<IButtonBasicStyle>`
   border-color: ${colors.green};
   background-color: ${colors.green};
   color: ${colors.white};
+  border-radius: 4px;
+  transition-duration: 0.25s;
+  border: none;
 `;
 
 interface IButton {
