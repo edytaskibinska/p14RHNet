@@ -49,7 +49,7 @@ const Input: FC<IInput> = ({
   onChange,
 }) => {
   //TODO gestion d'erreurs
-  const [inputValid, setInputValid] = useState(true);
+  const [inputValid] = useState(true);
   return (
     <InputBasic id={id} className={className}>
       <label htmlFor={forId}>{label}</label>
@@ -62,7 +62,6 @@ const Input: FC<IInput> = ({
         className={inputClassName}
         onChange={onChange}
       />
-      <>{console.log("setInputValid", setInputValid(true))}</>
       {!inputValid && <div className="errorMsg">Error</div>}
     </InputBasic>
   );

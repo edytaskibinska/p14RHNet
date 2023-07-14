@@ -3,17 +3,17 @@ import styled from "styled-components";
 
 //Modal close Icon declarations :
 interface ICloseIcon {
-  closeBtnColor?: string;
+  closebtncolor?: string;
   className?: string;
 }
 
 const IconSvg = styled.svg<ICloseIcon>`
   max-width: 27px;
   max-height: 27px;
-  fill: ${(props) => props.closeBtnColor || "black"};
+  fill: ${(props) => props.closebtncolor || "black"};
 `;
 
-const CloseIcon: FC<ICloseIcon> = ({ closeBtnColor }) => {
+const CloseIcon: FC<ICloseIcon> = ({ closebtncolor }) => {
   return (
     <IconSvg
       height="512px"
@@ -22,7 +22,7 @@ const CloseIcon: FC<ICloseIcon> = ({ closeBtnColor }) => {
       viewBox="0 0 512 512"
       width="512px"
       xmlns="http://www.w3.org/2000/svg"
-      closeBtnColor={closeBtnColor}
+      closebtncolor={closebtncolor}
     >
       <g>
         <path d="M256,33C132.3,33,32,133.3,32,257c0,123.7,100.3,224,224,224c123.7,0,224-100.3,224-224C480,133.3,379.7,33,256,33z    M364.3,332.5c1.5,1.5,2.3,3.5,2.3,5.6c0,2.1-0.8,4.2-2.3,5.6l-21.6,21.7c-1.6,1.6-3.6,2.3-5.6,2.3c-2,0-4.1-0.8-5.6-2.3L256,289.8   l-75.4,75.7c-1.5,1.6-3.6,2.3-5.6,2.3c-2,0-4.1-0.8-5.6-2.3l-21.6-21.7c-1.5-1.5-2.3-3.5-2.3-5.6c0-2.1,0.8-4.2,2.3-5.6l75.7-76   l-75.9-75c-3.1-3.1-3.1-8.2,0-11.3l21.6-21.7c1.5-1.5,3.5-2.3,5.6-2.3c2.1,0,4.1,0.8,5.6,2.3l75.7,74.7l75.7-74.7   c1.5-1.5,3.5-2.3,5.6-2.3c2.1,0,4.1,0.8,5.6,2.3l21.6,21.7c3.1,3.1,3.1,8.2,0,11.3l-75.9,75L364.3,332.5z" />
@@ -62,12 +62,12 @@ const ModalOverlay = styled.div<IModalBasicStyle>`
 
 //Modal Block declarations :
 interface IModalBlock {
-  modalTextColor?: string;
+  modaltextcolor?: string;
 }
 
 const ModalBlock = styled.div<IModalBlock>`
   background-color: white;
-  color: ${(props) => props.modalTextColor || "black"};
+  color: ${(props) => props.modaltextcolor || "black"};
   max-width: 400px;
   border-radius: 10px;
   padding: 40px;
@@ -77,11 +77,11 @@ const ModalBlock = styled.div<IModalBlock>`
 
 //Modal Title declarations :
 interface IModalTitle {
-  modalTitleColor?: string;
+  modaltitlecolor?: string;
 }
 const ModalTitle = styled.h2<IModalTitle>`
   margin-bottom: 20px;
-  color: ${(props) => props.modalTitleColor || "black"};
+  color: ${(props) => props.modaltitlecolor || "black"};
 `;
 
 //Modal Close button declarations :
@@ -101,7 +101,7 @@ const ModalClose = styled.button`
 //Modal Push declarations :
 interface IButtonBasicStyle {
   id?: string;
-  buttonColor?: string;
+  buttoncolor?: string;
 }
 
 const ButtonStyled = styled.button<IButtonBasicStyle>`
@@ -111,7 +111,7 @@ const ButtonStyled = styled.button<IButtonBasicStyle>`
   font-size: 1.1rem;
   font-weight: bold;
   margin-top: 1rem;
-  background-color: ${(props) => props.buttonColor || "black"};
+  background-color: ${(props) => props.buttoncolor || "black"};
   color: white;
   border-radius: 4px;
   transition-duration: 0.25s;
@@ -127,10 +127,10 @@ interface IModal {
   clicOutsideToClose?: boolean;
   withButton?: boolean;
   buttonText?: string;
-  buttonColor?: string;
-  closeBtnColor?: string;
-  modalTitleColor?: string;
-  modalTextColor?: string;
+  buttoncolor?: string;
+  closebtncolor?: string;
+  modaltitlecolor?: string;
+  modaltextcolor?: string;
   onClick?: MouseEventHandler<HTMLDivElement> | any;
 }
 
@@ -142,10 +142,10 @@ const Modal: FC<IModal> = ({
   clicOutsideToClose,
   withButton,
   buttonText,
-  buttonColor,
-  closeBtnColor,
-  modalTitleColor,
-  modalTextColor,
+  buttoncolor,
+  closebtncolor,
+  modaltitlecolor,
+  modaltextcolor,
   onClick,
 }) => {
   return (
@@ -158,10 +158,10 @@ const Modal: FC<IModal> = ({
           className={className}
         ></ModalOverlay>
 
-        <ModalBlock modalTextColor={modalTextColor}>
+        <ModalBlock modaltextcolor={modaltextcolor}>
           <>
             {modalTitle && (
-              <ModalTitle modalTitleColor={modalTitleColor}>
+              <ModalTitle modaltitlecolor={modaltitlecolor}>
                 {modalTitle}
               </ModalTitle>
             )}
@@ -169,7 +169,7 @@ const Modal: FC<IModal> = ({
           <>
             {!clicOutsideToClose && (
               <ModalClose onClick={onClick}>
-                <CloseIcon closeBtnColor={closeBtnColor} />
+                <CloseIcon closebtncolor={closebtncolor} />
               </ModalClose>
             )}
           </>
@@ -177,7 +177,7 @@ const Modal: FC<IModal> = ({
           {children}
 
           {withButton && (
-            <ButtonStyled buttonColor={buttonColor} onClick={onClick}>
+            <ButtonStyled buttoncolor={buttoncolor} onClick={onClick}>
               {buttonText}
             </ButtonStyled>
           )}

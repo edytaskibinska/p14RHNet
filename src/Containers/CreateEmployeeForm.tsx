@@ -144,10 +144,10 @@ const CreateEmployeeForm: FC = () => {
         modalTitle="Création de l'employée"
         withButton
         buttonText="Fermer"
-        closeBtnColor={colors.green}
-        buttonColor={colors.black}
-        modalTitleColor={colors.black}
-        modalTextColor={colors.greenClear}
+        closebtncolor={colors.green}
+        buttoncolor={colors.black}
+        modaltitlecolor={colors.black}
+        modaltextcolor={colors.greenClear}
       >
         Employee Created! 
       </Modal>
