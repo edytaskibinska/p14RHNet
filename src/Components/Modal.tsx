@@ -1,6 +1,5 @@
 import { FC, ReactNode, MouseEventHandler } from "react";
 import styled from "styled-components";
-import { colors } from "../Data/Colors";
 
 //Modal close Icon declarations :
 interface ICloseIcon {
@@ -11,7 +10,7 @@ interface ICloseIcon {
 const IconSvg = styled.svg<ICloseIcon>`
   max-width: 27px;
   max-height: 27px;
-  fill: ${(props) => props.closeBtnColor || colors.black};
+  fill: ${(props) => props.closeBtnColor || "black"};
 `;
 
 const CloseIcon: FC<ICloseIcon> = ({ closeBtnColor }) => {
@@ -67,8 +66,8 @@ interface IModalBlock {
 }
 
 const ModalBlock = styled.div<IModalBlock>`
-  background-color: ${colors.white};
-  color: ${(props) => props.modalTextColor || colors.black};
+  background-color: white;
+  color: ${(props) => props.modalTextColor || "black"};
   max-width: 400px;
   border-radius: 10px;
   padding: 40px;
@@ -82,7 +81,7 @@ interface IModalTitle {
 }
 const ModalTitle = styled.h2<IModalTitle>`
   margin-bottom: 20px;
-  color: ${(props) => props.modalTitleColor || colors.black};
+  color: ${(props) => props.modalTitleColor || "black"};
 `;
 
 //Modal Close button declarations :
@@ -93,7 +92,8 @@ const ModalClose = styled.button`
   border-radius: 10px;
   position: absolute;
   top: -5px;
-  right: 2px;
+  right: -3px;
+  padding: 0px;
   color: white;
   border: 0px solid transparent;
 `;
@@ -111,9 +111,8 @@ const ButtonStyled = styled.button<IButtonBasicStyle>`
   font-size: 1.1rem;
   font-weight: bold;
   margin-top: 1rem;
-  border-color: ${colors.green};
-  background-color: ${(props) => props.buttonColor || colors.green};
-  color: ${colors.white};
+  background-color: ${(props) => props.buttonColor || "black"};
+  color: white;
   border-radius: 4px;
   transition-duration: 0.25s;
   border: none;
@@ -128,8 +127,8 @@ interface IModal {
   clicOutsideToClose?: boolean;
   withButton?: boolean;
   buttonText?: string;
-  closeBtnColor?: string;
   buttonColor?: string;
+  closeBtnColor?: string;
   modalTitleColor?: string;
   modalTextColor?: string;
   onClick?: MouseEventHandler<HTMLDivElement> | any;
@@ -150,22 +149,31 @@ const Modal: FC<IModal> = ({
   onClick,
 }) => {
   return (
-    isOpen && (
-      <ModalContainer>
-        <ModalOverlay
+    <>
+      {isOpen && (
+        <ModalContainer>
+          <ModalOverlay
+          //@ts-ignore
           onClick={clicOutsideToClose && onClick}
           className={className}
         ></ModalOverlay>
 
         <ModalBlock modalTextColor={modalTextColor}>
-          {modalTitle && (
-            <ModalTitle modalTitleColor={modalTitleColor}>
-              {modalTitle}
-            </ModalTitle>
-          )}
-          <ModalClose onClick={onClick}>
-            <CloseIcon closeBtnColor={closeBtnColor} />
-          </ModalClose>
+          <>
+            {modalTitle && (
+              <ModalTitle modalTitleColor={modalTitleColor}>
+                {modalTitle}
+              </ModalTitle>
+            )}
+          </>
+          <>
+            {!clicOutsideToClose && (
+              <ModalClose onClick={onClick}>
+                <CloseIcon closeBtnColor={closeBtnColor} />
+              </ModalClose>
+            )}
+          </>
+
           {children}
 
           {withButton && (
@@ -174,8 +182,9 @@ const Modal: FC<IModal> = ({
             </ButtonStyled>
           )}
         </ModalBlock>
-      </ModalContainer>
-    )
+        </ModalContainer>
+      )}
+    </>
   );
 };
 

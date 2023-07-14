@@ -1,6 +1,6 @@
 import { FC, ChangeEvent, useState } from "react";
 import styled from "styled-components";
-import {colors} from "../Data/Colors"
+import { colors } from "../Data/Colors";
 
 export const InputBasic = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ export const InputBasic = styled.div`
     font-weight: bold;
   }
   input {
-    border: 1px solid #8CA1A5;
+    border: 1px solid #8ca1a5;
     border-radius: 5px;
     padding: 5px;
     font-size: 1.2rem;
@@ -49,7 +49,7 @@ const Input: FC<IInput> = ({
   onChange,
 }) => {
   //TODO gestion d'erreurs
-  const [inputValid, setInputValid] = useState(true)
+  const [inputValid, setInputValid] = useState(true);
   return (
     <InputBasic id={id} className={className}>
       <label htmlFor={forId}>{label}</label>
@@ -62,6 +62,7 @@ const Input: FC<IInput> = ({
         className={inputClassName}
         onChange={onChange}
       />
+      <>{console.log("setInputValid", setInputValid(true))}</>
       {!inputValid && <div className="errorMsg">Error</div>}
     </InputBasic>
   );
