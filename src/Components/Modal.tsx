@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 //Modal Title declarations :
 interface IPropsStyled {
-  id?: string;
   modaltextcolor?: string;
   buttoncolor?: string;
   modaltitlecolor?: string;
