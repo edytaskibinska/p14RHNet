@@ -1,18 +1,11 @@
 import { FC, useState, useContext } from "react";
 import { v4 as uuid } from "uuid";
-import {
-  Form,
-  Fieldset,
-  Input,
-  Button,
-  Modal,
-  Select,
-  Title,
-} from "../Components";
+import { Form, Fieldset, Input, Button, Select, Title } from "../Components";
 import { states, dept } from "../Data/SelectData";
 import { EmployeesContext } from "../Context/EmployeesContext";
 import { colors } from "../Data/Colors";
 
+import { Modal } from "@e-skibinska/proton-design-system";
 
 const CreateEmployeeForm: FC = () => {
   const [frstName, setFrstName] = useState("");
@@ -149,7 +142,7 @@ const CreateEmployeeForm: FC = () => {
         modaltitlecolor={colors.black}
         modaltextcolor={colors.greenClear}
       >
-        Employee Created! 
+        Employee Created!
       </Modal>
     </div>
   );

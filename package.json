@@ -11,6 +11,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
+    "@e-skibinska/proton-design-system": "^0.1.0",
     "react": "^18.2.0",
     "react-data-table-component": "^7.5.3",
     "react-dom": "^18.2.0",

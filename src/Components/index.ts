@@ -3,7 +3,7 @@ import Button from "./Button";
 import Logo from "./Logo";
 import Form from "./Form";
 import Fieldset from "./Fieldset";
-import Modal from "./Modal";
+import { Modal } from "./Modal";//Import locally - temp
 import Select from "./Select";
 import Title from "./Title";
 

@@ -1,19 +1,23 @@
-import { FC, ReactNode, MouseEventHandler } from "react";
-import styled from "styled-components";
+import { FC, ReactNode, MouseEventHandler } from 'react';
+import styled from 'styled-components';
 
-//Modal close Icon declarations :
-interface ICloseIcon {
+//Modal Title declarations :
+interface IPropsStyled {
+  id?: string;
+  modaltextcolor?: string;
+  buttoncolor?: string;
+  modaltitlecolor?: string;
   closebtncolor?: string;
-  className?: string;
 }
 
-const IconSvg = styled.svg<ICloseIcon>`
+//Modal close Icon declarations :
+const IconSvg = styled.svg<IPropsStyled>`
   max-width: 27px;
   max-height: 27px;
-  fill: ${(props) => props.closebtncolor || "black"};
+  fill: ${(props: IPropsStyled) => props.closebtncolor || 'black'};
 `;
 
-const CloseIcon: FC<ICloseIcon> = ({ closebtncolor }) => {
+const CloseIcon: FC<IPropsStyled> = ({ closebtncolor }) => {
   return (
     <IconSvg
       height="512px"
@@ -30,13 +34,8 @@ const CloseIcon: FC<ICloseIcon> = ({ closebtncolor }) => {
     </IconSvg>
   );
 };
-
-//Modal basic declarations :
-interface IModalBasicStyle {
-  id?: string;
-}
-
-const ModalContainer = styled.div<IModalBasicStyle>`
+//Modal Parent container declarations :
+const ModalContainer = styled.div<IPropsStyled>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,7 +48,7 @@ const ModalContainer = styled.div<IModalBasicStyle>`
 `;
 
 //Modal Overlay declarations :
-const ModalOverlay = styled.div<IModalBasicStyle>`
+const ModalOverlay = styled.div<IPropsStyled>`
   width: 100%;
   padding: 8px;
   position: fixed;
@@ -61,13 +60,9 @@ const ModalOverlay = styled.div<IModalBasicStyle>`
 `;
 
 //Modal Block declarations :
-interface IModalBlock {
-  modaltextcolor?: string;
-}
-
-const ModalBlock = styled.div<IModalBlock>`
+const ModalBlock = styled.div<IPropsStyled>`
   background-color: white;
-  color: ${(props) => props.modaltextcolor || "black"};
+  color: ${(props: IPropsStyled) => props.modaltextcolor || 'black'};
   max-width: 400px;
   border-radius: 10px;
   padding: 40px;
@@ -76,16 +71,13 @@ const ModalBlock = styled.div<IModalBlock>`
 `;
 
 //Modal Title declarations :
-interface IModalTitle {
-  modaltitlecolor?: string;
-}
-const ModalTitle = styled.h2<IModalTitle>`
+const ModalTitle = styled.h2<IPropsStyled>`
   margin-bottom: 20px;
-  color: ${(props) => props.modaltitlecolor || "black"};
+  color: ${(props: IPropsStyled) => props.modaltitlecolor || 'black'};
 `;
 
 //Modal Close button declarations :
-const ModalClose = styled.button`
+const ModalClose = styled.button<IPropsStyled>`
   background-color: transparent;
   width: 24px;
   height: 20px;
@@ -99,19 +91,14 @@ const ModalClose = styled.button`
 `;
 
 //Modal Push declarations :
-interface IButtonBasicStyle {
-  id?: string;
-  buttoncolor?: string;
-}
-
-const ButtonStyled = styled.button<IButtonBasicStyle>`
+const ButtonStyled = styled.button<IPropsStyled>`
   display: block;
   width: 100%;
   padding: 8px;
   font-size: 1.1rem;
   font-weight: bold;
   margin-top: 1rem;
-  background-color: ${(props) => props.buttoncolor || "black"};
+  background-color: ${(props: IPropsStyled) => props.buttoncolor || 'black'};
   color: white;
   border-radius: 4px;
   transition-duration: 0.25s;
@@ -134,7 +121,7 @@ interface IModal {
   onClick?: MouseEventHandler<HTMLDivElement> | any;
 }
 
-const Modal: FC<IModal> = ({
+export const Modal: FC<IModal> = ({
   children,
   className,
   modalTitle,
@@ -153,39 +140,36 @@ const Modal: FC<IModal> = ({
       {isOpen && (
         <ModalContainer>
           <ModalOverlay
-          //@ts-ignore
-          onClick={clicOutsideToClose && onClick}
-          className={className}
-        ></ModalOverlay>
+            onClick={clicOutsideToClose && onClick}
+            className={className}
+          ></ModalOverlay>
 
-        <ModalBlock modaltextcolor={modaltextcolor}>
-          <>
-            {modalTitle && (
-              <ModalTitle modaltitlecolor={modaltitlecolor}>
-                {modalTitle}
-              </ModalTitle>
+          <ModalBlock modaltextcolor={modaltextcolor}>
+            <>
+              {modalTitle && (
+                <ModalTitle modaltitlecolor={modaltitlecolor}>
+                  {modalTitle}
+                </ModalTitle>
+              )}
+            </>
+            <>
+              {!clicOutsideToClose && (
+                <ModalClose onClick={onClick}>
+                  <CloseIcon closebtncolor={closebtncolor} />
+                </ModalClose>
+              )}
+            </>
+
+            {children}
+
+            {withButton && (
+              <ButtonStyled buttoncolor={buttoncolor} onClick={onClick}>
+                {buttonText}
+              </ButtonStyled>
             )}
-          </>
-          <>
-            {!clicOutsideToClose && (
-              <ModalClose onClick={onClick}>
-                <CloseIcon closebtncolor={closebtncolor} />
-              </ModalClose>
-            )}
-          </>
-
-          {children}
-
-          {withButton && (
-            <ButtonStyled buttoncolor={buttoncolor} onClick={onClick}>
-              {buttonText}
-            </ButtonStyled>
-          )}
-        </ModalBlock>
+          </ModalBlock>
         </ModalContainer>
       )}
     </>
   );
 };
-
-export default Modal;
