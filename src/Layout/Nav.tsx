@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { colors } from "../Data/Colors";
 import styled from "styled-components";
 
+//Navigation component declaration
 const NavStyled = styled.nav`
   display: flex;
   justify-content: space-between;

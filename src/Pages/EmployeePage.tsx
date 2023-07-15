@@ -11,6 +11,7 @@ interface IEmployeePage {
   id?: string;
 }
 
+//Employee Page component declaration
 const EmployeePage: FC<IEmployeePage> = ({ id }) => {
   return (
     <EmployeePageStyled id={id} className="EmployeePage">

@@ -5,6 +5,7 @@ interface ITitleBasicStyle {
   color?: string
 }
 
+//Title component declaration
 const TitleStyled = styled.h1<ITitleBasicStyle>`
   margin-bottom: 10px;
   font-size: 1.5rem;

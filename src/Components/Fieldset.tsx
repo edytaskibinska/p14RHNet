@@ -1,5 +1,7 @@
 import { FC, ReactNode } from "react";
 import styled from "styled-components";
+
+//Fieldset component declaration
 interface IFieldsetBasicStyle {
   id?: string;
 }

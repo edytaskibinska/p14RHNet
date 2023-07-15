@@ -2,6 +2,8 @@ import { FC, ChangeEvent, useState } from "react";
 import styled from "styled-components";
 import { colors } from "../Data/Colors";
 
+//Input component declaration
+
 export const InputBasic = styled.div`
   display: flex;
   flex-direction: column;
@@ -34,6 +36,7 @@ interface IInput {
   required?: boolean;
   inputClassName?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  props?: any;
 }
 
 const Input: FC<IInput> = ({
@@ -47,8 +50,8 @@ const Input: FC<IInput> = ({
   inputClassName,
   required,
   onChange,
+  props,
 }) => {
-  //TODO gestion d'erreurs
   const [inputValid] = useState(true);
   return (
     <InputBasic id={id} className={className}>
@@ -61,6 +64,7 @@ const Input: FC<IInput> = ({
         placeholder={placeholder}
         className={inputClassName}
         onChange={onChange}
+        {...props}
       />
       {!inputValid && <div className="errorMsg">Error</div>}
     </InputBasic>

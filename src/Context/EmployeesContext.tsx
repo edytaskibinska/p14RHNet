@@ -1,7 +1,7 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, Dispatch, ReactNode } from "react";
 
-interface IInitEmpList {
-  employees: never[] | any;
+export interface IInitEmpList {
+  employees: never[];
 }
 interface IState {
   employees: Object[];
@@ -10,6 +10,16 @@ interface IAction {
   type: string;
   payload: Object;
 }
+
+
+export interface IContextType {
+  state: IState;
+  dispatch: Dispatch<IAction>;
+}
+interface EmployeesContextProviderProps {
+  children: ReactNode;
+}
+
 //initial state - empty list of employees
 const initialState = {
   employees: [],
@@ -29,13 +39,15 @@ const reducer = (state: IState, action: IAction) => {
 };
 
 //creating store (context) with initial state
-const EmployeesContext = createContext<IInitEmpList>(initialState);
+const EmployeesContext = createContext<IContextType | IInitEmpList | undefined>(
+  initialState
+);
 
-//Provode the state (context) for all application
-const EmployeesContextProvider = (props: any) => {
+//Privode the state (context) for all application
+const EmployeesContextProvider = (props: EmployeesContextProviderProps) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <EmployeesContext.Provider value={{ state, dispatch } as any}>
+    <EmployeesContext.Provider value={{ state, dispatch }}>
       {props.children}
     </EmployeesContext.Provider>
   );

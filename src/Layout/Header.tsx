@@ -1,6 +1,7 @@
 import { FC, ReactNode } from "react";
 import styled from "styled-components";
 
+//Header component declaration
 const HeaderStyled = styled.header`
   display: flex;
   align-items: center;

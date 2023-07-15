@@ -2,6 +2,8 @@ import { FC, ReactNode, MouseEvent } from "react";
 import styled from "styled-components";
 import { colors } from "../Data/Colors";
 
+//Button component declaration
+
 interface IButtonBasicStyle {
   id?: string;
 }

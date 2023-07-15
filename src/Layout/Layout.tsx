@@ -5,6 +5,9 @@ import { Header, Footer, Nav, Main } from "./index";
 import logo from "../Assets/logo.jpg";
 import { Logo } from "../Components";
 
+
+//Layout component declaration
+
 interface ILayout {
   content?: ReactNode;
 }

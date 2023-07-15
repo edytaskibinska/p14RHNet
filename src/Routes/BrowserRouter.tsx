@@ -9,11 +9,10 @@ import {
 } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
+//Root and routes for all application declaration
 const Root = () => {
-  return <Layout  content={<Outlet />} />
+  return <Layout content={<Outlet />} />;
 };
-
-
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,4 +25,3 @@ export const router = createBrowserRouter(
 );
 
 export default Root;
-

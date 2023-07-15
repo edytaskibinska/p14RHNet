@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styled from "styled-components";
 
+//Logo component declaration
 interface ILogoBasicStyle {
   id?: string;
 }

@@ -8,6 +8,7 @@ const MainStyled = styled.main`
   margin: 0 auto;
 `;
 
+//Main content component declaration
 interface IMain {
   children?: ReactNode;
 }

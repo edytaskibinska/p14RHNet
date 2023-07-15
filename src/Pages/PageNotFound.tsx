@@ -2,6 +2,9 @@ import { FC } from "react";
 import styled from "styled-components";
 import { colors } from "../Data/Colors";
 
+
+//404 Page component declaration
+
 const Page404Styled = styled.div`
   display: flex;
   flex-direction: column;

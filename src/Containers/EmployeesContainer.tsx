@@ -1,10 +1,18 @@
-import { FC, useMemo, useState, useContext } from "react";
+import {
+  FC,
+  useMemo,
+  useState,
+  useContext,
+  ChangeEventHandler,
+  MouseEvent,
+  ChangeEvent,
+} from "react";
 import styled from "styled-components";
 import { EmployeesContext } from "../Context/EmployeesContext";
 
 import { Button } from "../Components";
-
-import DataTable from "react-data-table-component";
+import { IEmployee } from "../Interfaces/IEmployee";
+import DataTable, { Selector, TableColumn } from "react-data-table-component";
 
 const TextField = styled.input`
   height: 32px;
@@ -22,9 +30,9 @@ const TextField = styled.input`
 `;
 
 interface IFilterComponent {
-  filterText: any;
-  onFilter: any;
-  onClear: any;
+  filterText: string;
+  onFilter: ChangeEventHandler<HTMLInputElement>;
+  onClear: (event: MouseEvent<HTMLElement>) => void;
 }
 const FilterComponent: FC<IFilterComponent> = ({
   filterText,
@@ -44,50 +52,50 @@ const FilterComponent: FC<IFilterComponent> = ({
   </>
 );
 
-const columns = [
+const columns: TableColumn<IEmployee>[] = [
   {
     name: "First Name",
-    selector: (row: any) => row.firstName,
+    selector: (row: Selector<IEmployee> | any) => row.firstName,
     sortable: true,
   },
   {
     name: "Last Name",
-    selector: (row: any) => row.lastName,
+    selector: (row: Selector<IEmployee> | any) => row.lastName,
     sortable: true,
   },
   {
     name: "dateOfBirth",
-    selector: (row: any) => row.dateOfBirth,
+    selector: (row: Selector<IEmployee> | any) => row.dateOfBirth,
     sortable: true,
   },
   {
     name: "startDate",
-    selector: (row: any) => row.startDate,
+    selector: (row: Selector<IEmployee> | any) => row.startDate,
     sortable: true,
   },
   {
     name: "department",
-    selector: (row: any) => row.department,
+    selector: (row: Selector<IEmployee> | any) => row.department,
     sortable: true,
   },
   {
     name: "street",
-    selector: (row: any) => row.street,
+    selector: (row: Selector<IEmployee> | any) => row.street,
     sortable: true,
   },
   {
     name: "city",
-    selector: (row: any) => row.city,
+    selector: (row: Selector<IEmployee> | any) => row.city,
     sortable: true,
   },
   {
     name: "state",
-    selector: (row: any) => row.state,
+    selector: (row: Selector<IEmployee> | any) => row.state,
     sortable: true,
   },
   {
     name: "zipCode",
-    selector: (row: any) => row.zipCode,
+    selector: (row: Selector<IEmployee> | any) => row.zipCode,
     sortable: true,
   },
 ];
@@ -108,10 +116,11 @@ const TableContainer = styled.div`
     }
   }
 `;
+
+//Form for employees list
 const EmployeesContainer: FC = () => {
   //@ts-ignore
   const { state, dispatch } = useContext(EmployeesContext);
-  //@ts-ignore
   const employees = state.employees;
   const size = employees.length;
   console.log("employees", employees);
@@ -120,7 +129,7 @@ const EmployeesContainer: FC = () => {
   const [filterText, setFilterText] = useState("");
   const [resetpaginationtoggle, setResetPaginationToggle] = useState(false);
   const filtereditems = employees.filter(
-    (item: any) =>
+    (item: IEmployee) =>
       item.firstName &&
       item.firstName.toLowerCase().includes(filterText.toLowerCase())
   );
@@ -135,14 +144,15 @@ const EmployeesContainer: FC = () => {
 
     return (
       <FilterComponent
-        onFilter={(e: any) => setFilterText(e.target.value)}
+        onFilter={(e: ChangeEvent<HTMLInputElement>) =>
+          setFilterText(e.target.value)
+        }
         onClear={handleClear}
         filterText={filterText}
       />
     );
   }, [filterText, resetpaginationtoggle]);
 
-  //END data table
   return (
     <TableContainer>
       {size > 0 && (

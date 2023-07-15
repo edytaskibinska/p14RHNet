@@ -11,6 +11,7 @@ interface IIndexPage {
   id?: string;
 }
 
+//Home (employee cretion form ) Page component declaration
 const IndexPage: FC<IIndexPage> = ({ id }) => {
   //@ts-ignore
   const [currentUser, setCurrentUser] = useState({});
