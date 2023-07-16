@@ -1,12 +1,12 @@
 import { FC, useState, useContext } from "react";
 import { v4 as uuid } from "uuid";
-import { Form, Fieldset, Input, Button, Select, Title, Modal } from "../Components";
+import { Form, Fieldset, Input, Button, Select, Title } from "../Components";
 import { states, dept } from "../Data/SelectData";
 import { EmployeesContext } from "../Context/EmployeesContext";
 import { IEmployee } from "../Interfaces/IEmployee";
 import { colors } from "../Data/Colors";
 
-//import { Modal } from "@e-skibinska/proton-design-system";
+import { Modal } from "@e-skibinska/proton-design-system";
 
 //Form for employee creation
 const CreateEmployeeForm: FC = () => {
@@ -117,7 +117,9 @@ const CreateEmployeeForm: FC = () => {
               zipCode: zipCode,
             };
 
-            const employeeExist = employees.some((e: IEmployee) => e.id === small_id);
+            const employeeExist = employees.some(
+              (e: IEmployee) => e.id === small_id
+            );
             if (employeeExist) {
               setConfirmation(false);
               return;
