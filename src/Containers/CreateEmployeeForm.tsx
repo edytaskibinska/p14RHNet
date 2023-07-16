@@ -6,6 +6,7 @@ import { EmployeesContext } from "../Context/EmployeesContext";
 import { IEmployee } from "../Interfaces/IEmployee";
 import { colors } from "../Data/Colors";
 
+//Modal from npm design system
 import { Modal } from "@e-skibinska/proton-design-system";
 
 //Form for employee creation
