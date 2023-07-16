@@ -122,7 +122,7 @@ const ButtonStyled = styled.button<IPropsStyled>`
 
 //Modal Component declaration :
 interface IModal {
-  children?: ReactNode;
+  children: ReactNode;
   className?: string;
   modalTitle?: string | boolean;
   isOpen?: boolean;
