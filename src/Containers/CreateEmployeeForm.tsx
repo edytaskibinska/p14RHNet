@@ -141,9 +141,6 @@ const CreateEmployeeForm: FC = () => {
         isOpen={confirmation}
         className="modal"
         modalTitle="Création de l'employée"
-        withButtonClose
-        clicOutsideToClose
-        buttonText="Fermer"
         closebtncolor={colors.green}
         buttoncolor={colors.black}
         modaltitlecolor={colors.black}
