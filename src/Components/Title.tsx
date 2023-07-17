@@ -1,11 +1,13 @@
 import { FC, ReactNode } from "react";
 import styled from "styled-components";
+
+//S.O.L.I.D - SRP - Single Responsibility Principle
+//Title component declarations
 interface ITitleBasicStyle {
   id?: string;
   color?: string
 }
 
-//Title component declaration
 const TitleStyled = styled.h1<ITitleBasicStyle>`
   margin-bottom: 10px;
   font-size: 1.5rem;

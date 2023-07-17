@@ -7,6 +7,7 @@ import { EmployeesContextProvider } from "./Context/EmployeesContext";
 import NormalizeStyle from "./GlobalStyles/NormalizeStyle";
 import { ThemeProvider } from "styled-components";
 
+//S.O.L.I.D - SRP - Single Responsibility Principle - encapsulation with providers and routes
 function App() {
   return (
     <>

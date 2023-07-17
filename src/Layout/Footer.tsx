@@ -2,6 +2,7 @@ import { FC, ReactNode } from "react";
 import styled from "styled-components";
 import { colors } from "../Data/Colors";
 
+//S.O.L.I.D - SRP - Single Responsibility Principle
 //Footer component declaration
 const FooterStyled = styled.footer`
   display: flex;

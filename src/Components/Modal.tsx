@@ -17,6 +17,7 @@
 import { FC, ReactNode, MouseEventHandler } from "react";
 import styled from "styled-components";
 
+//S.O.L.I.D - SRP - Single Responsibility Principle
 //Modal Title declarations :
 interface IPropsStyled {
   modaltextcolor?: string;
@@ -82,7 +83,7 @@ const ModalBlock = styled.div<IPropsStyled>`
   border-radius: 10px;
   padding: 40px;
   position: relative;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  box-shadow:0 6px 16px rgba(101, 101, 101, .07), 0 17px 21px rgba(21, 21, 21, .2);
 `;
 
 //Modal Title declarations :

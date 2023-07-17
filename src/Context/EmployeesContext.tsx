@@ -1,5 +1,8 @@
 import { createContext, useReducer, Dispatch, ReactNode } from "react";
 
+//S.O.L.I.D - SRP - Single Responsibility Principle
+// ADD EMPLOYEE Context 
+
 export interface IInitEmpList {
   employees: never[];
 }

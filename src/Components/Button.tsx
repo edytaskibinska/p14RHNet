@@ -1,9 +1,9 @@
-import { FC, ReactNode, MouseEvent } from "react";
+import { FC, ReactNode, MouseEvent, ButtonHTMLAttributes } from "react";
 import styled from "styled-components";
 import { colors } from "../Data/Colors";
 
 //Button component declaration
-
+//S.O.L.I.D - SRP - Single Responsibility Principle
 interface IButtonBasicStyle {
   id?: string;
 }
@@ -23,15 +23,20 @@ const ButtonStyled = styled.button<IButtonBasicStyle>`
   border: none;
 `;
 
-interface IButton {
+interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   className?: string;
   onClick?: (event: MouseEvent<HTMLElement>) => void;
 }
 
-const Button: FC<IButton> = ({ children, className, onClick }) => {
+const Button: FC<IButton> = ({
+  children,
+  className,
+  onClick,
+  ...restProps
+}) => {
   return (
-    <ButtonStyled onClick={onClick} className={className}>
+    <ButtonStyled onClick={onClick} className={className} {...restProps}>
       {children}
     </ButtonStyled>
   );

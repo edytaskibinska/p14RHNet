@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import styled from "styled-components";
 import CreateEmployeeForm from "../Containers/CreateEmployeeForm";
 
+//S.O.L.I.D - SRP - Single Responsibility Principle
 interface IIndexPageStyled {
   id?: string;
 }
@@ -19,6 +20,7 @@ const IndexPage: FC<IIndexPage> = ({ id }) => {
   return (
     <IndexPageStyled id={id} className="indexPage container">
       <CreateEmployeeForm />
+      {/* S.O.L.I.D - SRP - Single Responsibility Principle */}
     </IndexPageStyled>
   );
 };

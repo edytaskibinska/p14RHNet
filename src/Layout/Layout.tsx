@@ -5,9 +5,8 @@ import { Header, Footer, Nav, Main } from "./index";
 import logo from "../Assets/logo.jpg";
 import { Logo } from "../Components";
 
-
+//S.O.L.I.D - SRP - Single Responsibility Principle
 //Layout component declaration
-
 interface ILayout {
   content?: ReactNode;
 }

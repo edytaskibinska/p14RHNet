@@ -38,14 +38,15 @@ const CreateEmployeeForm: FC = () => {
           forId="first-name"
           type="text"
           label="First Name"
-          onChange={(e) => setFrstName(e.target.value)}
-          placeholder="Tororo"
+          placeholder="First Name"
+          onChange={(e) => setFrstName(e.target.value)}   
         />
         <Input
           id="last-name"
           forId="last-name"
           type="text"
           label="Last Name"
+          placeholder="Last Name"
           onChange={(e) => setLstName(e.target.value)}
         />
         <Input
@@ -53,6 +54,7 @@ const CreateEmployeeForm: FC = () => {
           forId="date-of-birth"
           type="date"
           label="Date of Birth"
+          placeholder="Date of Birth"
           onChange={(e) => setBirthDate(e.target.value)}
         />
         <Input
@@ -60,14 +62,16 @@ const CreateEmployeeForm: FC = () => {
           forId="start-date"
           type="date"
           label="Start Date"
+          placeholder="Start Date"
           onChange={(e) => setStartDate(e.target.value)}
         />
-        <Fieldset legend="Address" className="address">
+        <Fieldset id="address" legend={<legend>Address</legend>} className="address">
           <Input
             id="street"
             forId="street"
             type="text"
             label="Street"
+            placeholder="Street"
             onChange={(e) => setStreet(e.target.value)}
           />
           <Input
@@ -75,6 +79,7 @@ const CreateEmployeeForm: FC = () => {
             forId="city"
             type="text"
             label="City"
+            placeholder="City"
             onChange={(e) => setCity(e.target.value)}
           />
 
@@ -90,6 +95,7 @@ const CreateEmployeeForm: FC = () => {
             forId="zip-code"
             type="number"
             label="Zip Code"
+            placeholder="Zip Code"
             onChange={(e) => setZipCode(e.target.value)}
           />
         </Fieldset>
@@ -141,10 +147,10 @@ const CreateEmployeeForm: FC = () => {
         isOpen={confirmation}
         className="modal"
         modalTitle="Création de l'employée"
-        closebtncolor={colors.green}
+        closebtncolor={colors.greenMedium}
         buttoncolor={colors.black}
         modaltitlecolor={colors.black}
-        modaltextcolor={colors.greenClear}
+        modaltextcolor={colors.green}
       >
         Employee Created!
       </Modal>

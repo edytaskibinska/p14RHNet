@@ -25,4 +25,4 @@ https://www.npmjs.com/package/@e-skibinska/proton-design-system
 
 ## Others :
 Data table third party library implemented in the project: https://react-data-table-component.netlify.app/?path=/docs/getting-started-intro--page
-Colors inspiration : https://colorhunt.co/palette/316b836d82998ca1a5d5bfbf
+Colors inspiration :https://colorhunt.co/palette/aac8a7c3edc0e9ffc2fdffae

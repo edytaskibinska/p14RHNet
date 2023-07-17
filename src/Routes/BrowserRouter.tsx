@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
+//S.O.L.I.D - SRP - Single Responsibility Principle - manage all routes for application
 //Root and routes for all application declaration
 const Root = () => {
   return <Layout content={<Outlet />} />;

@@ -1,31 +1,52 @@
-import { FC, ChangeEvent, useState } from "react";
+import { FC, ChangeEvent, useState, InputHTMLAttributes } from "react";
 import styled from "styled-components";
 import { colors } from "../Data/Colors";
 
+//S.O.L.I.D - SRP - Single Responsibility Principle
 //Input component declaration
-
 export const InputBasic = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 10px;
+  transition: 0.25s all;
   label {
     font-weight: bold;
   }
+  &:focus-within {
+    input {
+      transition: 0.25s all;
+      box-shadow: 0 6px 16px rgba(101, 101, 101, 0.07),
+        0 17px 21px rgba(21, 21, 21, 0.2);
+    }
+  }
   input {
-    border: 1px solid #8ca1a5;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 1.2rem;
+    border: 1px solid ${colors.greenSecondarySage};
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 1rem;
     width: 100%;
+    transition: 0.25s all;
+    &::placeholder {
+      opacity: 0.5;
+      font-size: 0.9rem;
+    }
+    &[type="date"]:invalid::-webkit-datetime-edit {
+      opacity: 0.5;
+      font-size: 0.9rem;
+    }
+    &:focus {
+      transition: 0.25s all;
+      background: ${colors.greenSecondaryLime};
+      color: ${colors.black};
+    }
   }
   .errorMsg {
-    color: ${colors.red};
-    font-size: 10px;
+    background-color: ${colors.red};
   }
 `;
 
-interface IInput {
+interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
   forId: string;
   label: string;
@@ -36,7 +57,6 @@ interface IInput {
   required?: boolean;
   inputClassName?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  props?: any;
 }
 
 const Input: FC<IInput> = ({
@@ -50,7 +70,7 @@ const Input: FC<IInput> = ({
   inputClassName,
   required,
   onChange,
-  props,
+  ...restProps
 }) => {
   const [inputValid] = useState(true);
   return (
@@ -64,7 +84,7 @@ const Input: FC<IInput> = ({
         placeholder={placeholder}
         className={inputClassName}
         onChange={onChange}
-        {...props}
+        {...restProps} //S.O.L.I.D - LS-  Liskov Substitution
       />
       {!inputValid && <div className="errorMsg">Error</div>}
     </InputBasic>

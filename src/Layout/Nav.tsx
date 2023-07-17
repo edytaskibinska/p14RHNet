@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { colors } from "../Data/Colors";
 import styled from "styled-components";
 
+//S.O.L.I.D - SRP - Single Responsibility Principle
 //Navigation component declaration
 const NavStyled = styled.nav`
   display: flex;

@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styled from "styled-components";
 
+//S.O.L.I.D - SRP - Single Responsibility Principle
 //Logo component declaration
 interface ILogoBasicStyle {
   id?: string;
@@ -17,7 +18,12 @@ interface ILogo {
 }
 
 const Logo: FC<ILogo> = ({ src, className }) => {
-  return <LogoStyled className={className} src={src} />;
+  return (
+    <LogoStyled
+      className={className}
+      src={src} //S.O.L.I.D - ISP - Interface Segregation principle
+    />
+  );
 };
 
 export default Logo;
