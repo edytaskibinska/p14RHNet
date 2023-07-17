@@ -39,7 +39,23 @@ https://codesandbox.io/p/sandbox/proton-design-modal-882dtf?file=%2Fsrc%2FApp.ts
 https://github.com/OpenClassrooms-Student-Center/P12_Front-end
 
 # Commands : 
-## CLI to generate documentation 
+
+## Cli commands for project:
+Developlment : 
+```
+npm run dev
+```
+
+Build : 
+```
+npm run build
+```
+Typescript Check cli : 
+```
+tsc
+```
+
+## CLI to generate documentation: 
  npx typedoc --out docs src/main.tsx
 
 ## Dependencies :
