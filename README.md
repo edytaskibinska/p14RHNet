@@ -25,16 +25,17 @@ The Application and NPM Module Architecture is based on S.O.L.I.D principles abs
 You can see examples by searching the keyword S.O.L.I.D in the code.
 
 # Code :
+## The Proton Design System NPM package :
+https://www.npmjs.com/package/@e-skibinska/proton-design-system
+
 ## The Github repository of the Module : Proton Design System :
 https://github.com/edytaskibinska/proton-design-system
 
+## The Codesandbox example of Proton Design Modal :
+https://codesandbox.io/p/sandbox/proton-design-modal-882dtf?file=%2Fsrc%2FApp.tsx%3A63%2C10
 
-## The link to the Proton Design System package :
-
-https://www.npmjs.com/package/@e-skibinska/proton-design-system
 
 ## The GIT repository of the basic project made in static HTML and JQuery :
-
 https://github.com/OpenClassrooms-Student-Center/P12_Front-end
 
 # Commands : 
@@ -54,5 +55,6 @@ If you accidentally passed it from a parent component, remove it from the DOM el
 
 The error doesn't prevent the application to work, just some natives props naming from react-data-table-component are invalid in this version of REact. It's a react and react-data-table-component compatibility problem met by a lot of people and should be fixed by authors soon. 
 
-## Design :
-Colors inspiration :https://colorhunt.co/palette/aac8a7c3edc0e9ffc2fdffae
+## Design Colors inspiration:
+
+https://colorhunt.co/palette/aac8a7c3edc0e9ffc2fdffae
