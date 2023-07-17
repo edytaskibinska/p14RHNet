@@ -41,7 +41,7 @@ https://github.com/OpenClassrooms-Student-Center/P12_Front-end
 # Commands : 
 
 ## Cli commands for project:
-Developlment : 
+Development : 
 ```
 npm run dev
 ```
@@ -50,7 +50,7 @@ Build :
 ```
 npm run build
 ```
-Typescript Check cli : 
+Typescript check CLI : 
 ```
 tsc
 ```
