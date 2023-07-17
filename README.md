@@ -52,7 +52,7 @@ If you intentionally want it to appear in the DOM as a custom attribute, spell i
 If you accidentally passed it from a parent component, remove it from the DOM element.
 ```
 
-The error doesn't prevent the application to wwork, just some natives props naming from react-data-table-component are invalid in this version. It's a react and react-data-table-component compatibility problem met by a lot of people and should be fixed by authors soon. 
+The error doesn't prevent the application to work, just some natives props naming from react-data-table-component are invalid in this version of REact. It's a react and react-data-table-component compatibility problem met by a lot of people and should be fixed by authors soon. 
 
 ## Design :
 Colors inspiration :https://colorhunt.co/palette/aac8a7c3edc0e9ffc2fdffae
