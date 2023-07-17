@@ -44,6 +44,11 @@ https://github.com/OpenClassrooms-Student-Center/P12_Front-end
 # Commands : 
 
 ## Cli commands for project:
+Make sure that you have the last version of Proton Design System modules:
+```
+npm i @e-skibinska/proton-design-system
+```
+
 Development : 
 ```
 npm run dev
