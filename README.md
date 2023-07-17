@@ -31,6 +31,9 @@ https://www.npmjs.com/package/@e-skibinska/proton-design-system
 ## The Github repository of the Module : Proton Design System :
 https://github.com/edytaskibinska/proton-design-system
 
+## The documentation of the Proton Design System Modal :
+https://edytaskibinska.github.io/proton-design-modal-doc/
+
 ## The Codesandbox example of Proton Design Modal :
 https://codesandbox.io/p/sandbox/proton-design-modal-882dtf?file=%2Fsrc%2FApp.tsx%3A63%2C10
 
