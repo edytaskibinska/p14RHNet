@@ -9,4 +9,5 @@ export interface IEmployee {
   city?: string;
   state?: string;
   zipCode?: number | undefined;
+  isRTL?:any
 }

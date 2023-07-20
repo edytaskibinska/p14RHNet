@@ -100,6 +100,16 @@ const columns: TableColumn<IEmployee>[] = [
   },
 ];
 const TableContainer = styled.div`
+  max-width: 1024px;
+  width: 100%;
+  overflow: hidden; 
+  .rdt_TableCol,
+  .rdt_TableCell {
+    box-sizing: border-box;
+    min-width: 0px;
+    max-widtrh: 11.1%;
+
+  }
   .rdt_TableHeader > div {
     font-size: 1.5rem;
     font-weight: 600;
@@ -167,6 +177,7 @@ const EmployeesContainer: FC = () => {
             subHeaderComponent={subheadercomponentmemo}
             //selectableRows
             persistTableHead
+            //workaroun error:
           />
         </>
       )}
