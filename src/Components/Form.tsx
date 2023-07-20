@@ -8,6 +8,7 @@ interface IFormBasicStyle {
 //Form component declaration
 const FormStyled = styled.form<IFormBasicStyle>`
   padding: 20px;
+  font-size: 13px;
 `;
 
 interface IForm extends FormHTMLAttributes<HTMLFormElement> {

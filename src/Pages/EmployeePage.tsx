@@ -6,7 +6,11 @@ import EmployeesContainer from "../Containers/EmployeesContainer";
 interface IEmployeePageStyled {
   id?: string;
 }
-const EmployeePageStyled = styled.div<IEmployeePageStyled>``;
+const EmployeePageStyled = styled.div<IEmployeePageStyled>`
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+`;
 
 interface IEmployeePage {
   id?: string;

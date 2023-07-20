@@ -6,7 +6,11 @@ import CreateEmployeeForm from "../Containers/CreateEmployeeForm";
 interface IIndexPageStyled {
   id?: string;
 }
-const IndexPageStyled = styled.div<IIndexPageStyled>``;
+const IndexPageStyled = styled.div<IIndexPageStyled>`
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+`;
 
 interface IIndexPage {
   id?: string;

@@ -24,6 +24,8 @@ const TextField = styled.input`
   border-bottom-right-radius: 0;
   border: 1px solid #e5e5e5;
   padding: 0 32px 0 16px;
+  font-size: 13px;
+
   &:hover {
     cursor: pointer;
   }
@@ -48,7 +50,9 @@ const FilterComponent: FC<IFilterComponent> = ({
       value={filterText}
       onChange={onFilter}
     />
-    <Button onClick={onClear}>Clear</Button>
+    <Button className="btnClear" onClick={onClear}>
+      Clear
+    </Button>
   </>
 );
 
@@ -64,27 +68,27 @@ const columns: TableColumn<IEmployee>[] = [
     sortable: true,
   },
   {
-    name: "dateOfBirth",
+    name: "Date of birth",
     selector: (row: Selector<IEmployee> | any) => row.dateOfBirth,
     sortable: true,
   },
   {
-    name: "startDate",
+    name: "Start Date",
     selector: (row: Selector<IEmployee> | any) => row.startDate,
     sortable: true,
   },
   {
-    name: "department",
+    name: "Dept",
     selector: (row: Selector<IEmployee> | any) => row.department,
     sortable: true,
   },
   {
-    name: "street",
+    name: "Street",
     selector: (row: Selector<IEmployee> | any) => row.street,
     sortable: true,
   },
   {
-    name: "city",
+    name: "City",
     selector: (row: Selector<IEmployee> | any) => row.city,
     sortable: true,
   },
@@ -102,17 +106,29 @@ const columns: TableColumn<IEmployee>[] = [
 const TableContainer = styled.div`
   max-width: 1024px;
   width: 100%;
-  overflow: hidden; 
+  overflow: hidden;
+  .btnClear {
+    font-size: 13px;
+    border-radius: 0px 4px 4px 0;
+    padding: 13px;
+  }
   .rdt_TableCol,
   .rdt_TableCell {
+    padding-left: 5px;
+    padding-right: 5px;
     box-sizing: border-box;
     min-width: 0px;
-    max-widtrh: 11.1%;
-
+    max-width: 11.1%;
   }
-  .rdt_TableHeader > div {
-    font-size: 1.5rem;
-    font-weight: 600;
+  .rdt_TableCol_Sortable > div {
+    white-space: normal;
+    text-overflow: initial;
+  }
+
+  .rdt_TableHeader {
+    & > div {
+      font-weight: 600;
+    }
   }
 
   header {
