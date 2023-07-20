@@ -9,7 +9,7 @@ import {
 } from "react";
 import styled from "styled-components";
 import { EmployeesContext } from "../Context/EmployeesContext";
-
+import { IContextType } from "../Context/EmployeesContext";
 import { Button } from "../Components";
 import { IEmployee } from "../Interfaces/IEmployee";
 import DataTable, { Selector, TableColumn } from "react-data-table-component";
@@ -145,11 +145,13 @@ const TableContainer = styled.div`
 
 //Form for employees list
 const EmployeesContainer: FC = () => {
-  //@ts-ignore
-  const { state, dispatch } = useContext(EmployeesContext);
+  const context = useContext(EmployeesContext) as IContextType;
+  const { state } = context;
+
+  // const { state, dispatch } = useContext(EmployeesContext) as IContextType;
   const employees = state.employees;
   const size = employees.length;
-  console.log("employees", employees);
+  // console.log("employees", employees);
 
   //data table
   const [filterText, setFilterText] = useState("");
@@ -191,9 +193,7 @@ const EmployeesContainer: FC = () => {
             paginationResetDefaultPage={resetpaginationtoggle} // optionally, a hook to reset pagination to page 1
             subHeader
             subHeaderComponent={subheadercomponentmemo}
-            //selectableRows
             persistTableHead
-            //workaroun error:
           />
         </>
       )}

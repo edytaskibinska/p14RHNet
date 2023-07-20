@@ -2,7 +2,7 @@ import { FC, useState, useContext } from "react";
 import { v4 as uuid } from "uuid";
 import { Form, Fieldset, Input, Button, Select, Title } from "../Components";
 import { states, dept } from "../Data/SelectData";
-import { EmployeesContext } from "../Context/EmployeesContext";
+import { EmployeesContext, IContextType } from "../Context/EmployeesContext";
 import { IEmployee } from "../Interfaces/IEmployee";
 import { colors } from "../Data/Colors";
 
@@ -24,14 +24,17 @@ const CreateEmployeeForm: FC = () => {
   const unique_id = uuid();
   const small_id = unique_id.slice(0, 8);
 
-  //@ts-ignore
-  const { state, dispatch } = useContext(EmployeesContext);
+  const context = useContext(EmployeesContext) as IContextType; 
+  const { state, dispatch } = context;
+
+
+  //const { state, dispatch } = useContext(EmployeesContext);
   const employees = state.employees;
 
   return (
     <div>
       <Title>Create employee</Title>
-      <>{console.log("STATE usereducer", state)}</>
+      {/* <>{console.log("STATE usereducer", state)}</> */}
       <Form id="create-empState">
         <Input
           id="first-name"

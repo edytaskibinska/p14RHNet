@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import styled from "styled-components";
 import CreateEmployeeForm from "../Containers/CreateEmployeeForm";
 
@@ -18,9 +18,6 @@ interface IIndexPage {
 
 //Home (employee cretion form ) Page component declaration
 const IndexPage: FC<IIndexPage> = ({ id }) => {
-  //@ts-ignore
-  const [currentUser, setCurrentUser] = useState({});
-
   return (
     <IndexPageStyled id={id} className="indexPage container">
       <CreateEmployeeForm />
