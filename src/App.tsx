@@ -14,7 +14,7 @@ function App() {
       <EmployeesContextProvider>
         <ThemeProvider theme={{ mode: "dark" }}>
           <NormalizeStyle />
-          <RouterProvider router={router} />;
+          <RouterProvider router={router} />
         </ThemeProvider>
       </EmployeesContextProvider>
     </>
