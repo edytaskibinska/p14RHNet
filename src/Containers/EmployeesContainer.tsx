@@ -103,7 +103,8 @@ const columns: TableColumn<IEmployee>[] = [
     sortable: true,
   },
 ];
-const TableContainer = styled.div`
+const TableContainer = styled.span`
+  display: block;
   max-width: 1024px;
   width: 100%;
   overflow: hidden;

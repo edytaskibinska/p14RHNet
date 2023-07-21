@@ -11,7 +11,7 @@ interface ITitleBasicStyle {
 const TitleStyled = styled.h1<ITitleBasicStyle>`
   margin-bottom: 10px;
   font-size: 1.5rem;
-  color: ${props => props.color}
+  color: ${props => props?.color}
 `;
 
 interface ITitle {

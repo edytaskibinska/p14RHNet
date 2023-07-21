@@ -7,5 +7,5 @@ export const colors = {
   greenSecondarySage: "#AAC8A7",
   greenSecondaryLime: "#E9FFC2",
   greenSecondaryYellow: "#FDFFAE",
-  red: "#EF6262"
+  red: "#EF6262",
 };

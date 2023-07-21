@@ -30,7 +30,7 @@ interface IPropsStyled {
 const IconSvg = styled.svg<IPropsStyled>`
   max-width: 27px;
   max-height: 27px;
-  fill: ${(props: IPropsStyled) => props.closebtncolor || "black"};
+  fill: ${(props: IPropsStyled) => props?.closebtncolor || "black"};
 `;
 
 const CloseIcon: FC<IPropsStyled> = ({ closebtncolor }) => {
@@ -78,7 +78,7 @@ const ModalOverlay = styled.div<IPropsStyled>`
 //Modal Block declarations :
 const ModalBlock = styled.div<IPropsStyled>`
   background-color: white;
-  color: ${(props: IPropsStyled) => props.modaltextcolor || "black"};
+  color: ${(props: IPropsStyled) => props?.modaltextcolor || "black"};
   max-width: 400px;
   border-radius: 10px;
   padding: 40px;
@@ -89,7 +89,7 @@ const ModalBlock = styled.div<IPropsStyled>`
 //Modal Title declarations :
 const ModalTitle = styled.h2<IPropsStyled>`
   margin-bottom: 20px;
-  color: ${(props: IPropsStyled) => props.modaltitlecolor || "black"};
+  color: ${(props: IPropsStyled) => props?.modaltitlecolor || "black"};
 `;
 
 //Modal Close button declarations :
@@ -114,7 +114,7 @@ const ButtonStyled = styled.button<IPropsStyled>`
   font-size: 1.1rem;
   font-weight: bold;
   margin-top: 1rem;
-  background-color: ${(props: IPropsStyled) => props.buttoncolor || "black"};
+  background-color: ${(props: IPropsStyled) => props?.buttoncolor || "black"};
   color: white;
   border-radius: 4px;
   transition-duration: 0.25s;
