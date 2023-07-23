@@ -9,6 +9,12 @@ interface IFormBasicStyle {
 const FormStyled = styled.form<IFormBasicStyle>`
   padding: 20px;
   font-size: 13px;
+  .error {
+    input {
+      border: 1px solid red;
+    }
+  }
+  
 `;
 
 interface IForm extends FormHTMLAttributes<HTMLFormElement> {

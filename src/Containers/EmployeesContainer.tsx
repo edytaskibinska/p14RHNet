@@ -45,7 +45,7 @@ const FilterComponent: FC<IFilterComponent> = ({
     <TextField
       id="search"
       type="text"
-      placeholder="Filter By Name"
+      placeholder="Filter"
       aria-label="Search Input"
       value={filterText}
       onChange={onFilter}
@@ -149,19 +149,20 @@ const EmployeesContainer: FC = () => {
   const context = useContext(EmployeesContext) as IContextType;
   const { state } = context;
 
-  // const { state, dispatch } = useContext(EmployeesContext) as IContextType;
   const employees = state.employees;
   const size = employees.length;
-  // console.log("employees", employees);
-
   //data table
   const [filterText, setFilterText] = useState("");
   const [resetpaginationtoggle, setResetPaginationToggle] = useState(false);
+
   const filtereditems = employees.filter(
     (item: IEmployee) =>
-      item.firstName &&
-      item.firstName.toLowerCase().includes(filterText.toLowerCase())
+      (item.firstName &&
+        item.firstName.toLowerCase().includes(filterText.toLowerCase())) ||
+      (item.lastName &&
+        item.lastName.toLowerCase().includes(filterText.toLowerCase()))
   );
+  
 
   const subheadercomponentmemo = useMemo(() => {
     const handleClear = () => {

@@ -13,6 +13,8 @@ import { Modal } from "@e-skibinska/proton-design-system";
 const CreateEmployeeForm: FC = () => {
   const [frstName, setFrstName] = useState("");
   const [lstName, setLstName] = useState("");
+  const [firstNameError, setFirstNameError] = useState(false);
+  const [lastNameError, setLastNameError] = useState(false);
   const [birthDate, setBirthDate] = useState("");
   const [startDate, setStartDate] = useState("");
   const [street, setStreet] = useState("");
@@ -24,33 +26,31 @@ const CreateEmployeeForm: FC = () => {
   const unique_id = uuid();
   const small_id = unique_id.slice(0, 8);
 
-  const context = useContext(EmployeesContext) as IContextType; 
+  const context = useContext(EmployeesContext) as IContextType;
   const { state, dispatch } = context;
-
-
-  //const { state, dispatch } = useContext(EmployeesContext);
   const employees = state.employees;
 
   return (
     <div>
       <Title>Create employee</Title>
-      {/* <>{console.log("STATE usereducer", state)}</> */}
       <Form id="create-empState">
         <Input
           id="first-name"
           forId="first-name"
           type="text"
-          label="First Name"
+          label="First Name *"
           placeholder="First Name"
-          onChange={(e) => setFrstName(e.target.value)}   
+          onChange={(e) => setFrstName(e.target.value)}
+          className={firstNameError ? "error" : ""}
         />
         <Input
           id="last-name"
           forId="last-name"
           type="text"
-          label="Last Name"
+          label="Last Name *"
           placeholder="Last Name"
           onChange={(e) => setLstName(e.target.value)}
+          className={lastNameError ? "error" : ""}
         />
         <Input
           id="date-of-birth"
@@ -68,7 +68,11 @@ const CreateEmployeeForm: FC = () => {
           placeholder="Start Date"
           onChange={(e) => setStartDate(e.target.value)}
         />
-        <Fieldset id="address" legend={<legend>Address</legend>} className="address">
+        <Fieldset
+          id="address"
+          legend={<legend>Address</legend>}
+          className="address"
+        >
           <Input
             id="street"
             forId="street"
@@ -112,8 +116,21 @@ const CreateEmployeeForm: FC = () => {
 
         <Button
           onClick={(e) => {
-            console.log("click");
             e.preventDefault();
+            // Vérifie si les champs firstName et lastName sont vides
+            if (frstName.trim() === "") {
+              setFirstNameError(true);
+              return;
+            }
+            if (lstName.trim() === "") {
+              setLastNameError(true);
+              return;
+            }
+
+            // Réinitialiseles messages d'erreur s'ils étaient affichés précédemment
+            setFirstNameError(false);
+            setLastNameError(false);
+
             const newMember = {
               id: small_id,
               firstName: frstName,
