@@ -66,7 +66,7 @@ tsc
 ```
 
 
-# Useful repositories :
+# Usage :
 
 ## The Proton Design System NPM package :
 https://www.npmjs.com/package/@e-skibinska/proton-design-system
