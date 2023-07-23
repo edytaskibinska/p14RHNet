@@ -35,6 +35,11 @@ Once you cloned the project, you need to need to install the node-modules on the
 npm install
 ```
 
+To have tha last version of packages please run:
+```
+npm update
+```
+
 Make sure that you have the last version of Proton Design System modules:
 ```
 npm i @e-skibinska/proton-design-system
@@ -53,15 +58,6 @@ npm run build
 Typescript checker : 
 ```
 tsc
-```
-
-If the project doesn't starts correctly and throw the error: 
-```
-Failed to load config from the vite.config.ts
-```
- Please run the command :
-```
-npm update
 ```
 
 ## CLI to generate documentation: 
