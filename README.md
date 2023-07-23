@@ -55,7 +55,11 @@ Typescript checker :
 tsc
 ```
 
-If the project doesn't starts correctly and throw the error: "Failed to load config from the vite.config.ts". Please run the command :
+If the project doesn't starts correctly and throw the error: 
+```
+Failed to load config from the vite.config.ts
+```
+ Please run the command :
 ```
 npm update
 ```
