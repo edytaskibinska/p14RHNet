@@ -1,4 +1,4 @@
-# Objectif / Intro :
+# About The Project
 
 ## FR: 
 Application web pour la société financière, WealthHealth. 
@@ -14,17 +14,60 @@ This company uses an internal web application, called HRnet, which manages emplo
 
 Project goal: transform  the based JQuery application application into a React application, migrate one of the components from Jquery to React, publish one component converted in React as package on the NMP repository.
 
-# Tech Stack :
+# Built With
 - Vite 4.4.0
 - React 18.2.0
 - Typescript 5.0.2
 
 # Architecture
-
 The Application and NPM Module Architecture is based on S.O.L.I.D principles abstracted to use them in modern React Typescript application.
 You can see examples by searching the keyword S.O.L.I.D in the code.
 
-# Code :
+# Installation  : 
+
+Clone the repo:
+```
+git clone https://github.com/edytaskibinska/p14RHNet.git
+```
+
+Once you cloned the project, you need to need to install the node-modules on the project repository (root) : 
+```
+npm install
+```
+
+Make sure that you have the last version of Proton Design System modules:
+```
+npm i @e-skibinska/proton-design-system
+```
+
+Development : 
+```
+npm run dev
+```
+
+Build : 
+```
+npm run build
+```
+
+Typescript checker : 
+```
+tsc
+```
+
+If the project doesn't starts correctly and throw the error: "Failed to load config from the vite.config.ts". Please run the command :
+```
+npm update
+```
+
+## CLI to generate documentation: 
+```
+ npx typedoc --out docs src/main.tsx
+```
+
+
+# Useful repositories :
+
 ## The Proton Design System NPM package :
 https://www.npmjs.com/package/@e-skibinska/proton-design-system
 
@@ -41,30 +84,6 @@ https://codesandbox.io/p/sandbox/proton-design-modal-882dtf?file=%2Fsrc%2FApp.ts
 ## The GIT repository of the basic project made in static HTML and JQuery :
 https://github.com/OpenClassrooms-Student-Center/P12_Front-end
 
-# Commands : 
-
-## Cli commands for project:
-Make sure that you have the last version of Proton Design System modules:
-```
-npm i @e-skibinska/proton-design-system
-```
-
-Development : 
-```
-npm run dev
-```
-
-Build : 
-```
-npm run build
-```
-Typescript check CLI : 
-```
-tsc
-```
-
-## CLI to generate documentation: 
- npx typedoc --out docs src/main.tsx
 
 ## Dependencies :
 Data table third party library implemented in the project: https://react-data-table-component.netlify.app/?path=/docs/getting-started-intro--page
